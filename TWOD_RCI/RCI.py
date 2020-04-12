@@ -13,6 +13,6 @@ rcin = RCInput()
 #     return int(rcin.read(rc_channl))
 
 def rci(rc_channl):
-    rc_rx = int(rcin.read(rc_channl))
-    h = rci_enc(rc_rx)
+    h = int(rcin.read(rc_channl))
+    # h = rci_enc(rc_rx)
     return h
