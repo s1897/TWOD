@@ -4,8 +4,6 @@ def rci_enc(receiver_imput, Convertet_output_lowes, Convertet_output_highest, re
 
     receiver_signal_range = receiver_imput_highest - receiver_imput_lowest
 
-    print(receiver_imput, Convertet_output_lowes, Convertet_output_highest, receiver_imput_lowest, receiver_imput_highest)
-
     return (((Convertet_output_highest - Convertet_output_lowes) / receiver_signal_range) * (receiver_signal_range - (receiver_imput_highest - receiver_imput))) + Convertet_output_lowes
 
 
