@@ -7,7 +7,7 @@ check_apm()
 from RCI_ENC import rci_enc
 
 
-def rci(rc_channl)
+def rci(rc_channl):
     return int(RCInput().read(rc_channl))
 
 # def rci(rc_channl, rc_drx=-1, rc_urx=1, rc_di=982, rc_ui=2006):
