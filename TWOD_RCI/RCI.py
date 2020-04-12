@@ -9,4 +9,4 @@ rcin = RCInput()
 
 
 def rci(rc_channl):
-    return int(rcin.read(rc_channl))
+    return rci_enc(int(rcin.read(rc_channl)))
