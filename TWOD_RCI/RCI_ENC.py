@@ -1,13 +1,11 @@
 
 
-def rci_enc(rc_rx, rc_drx=-1, rc_urx=1, rc_di=982, rc_ui=2006):
+def rci_enc(receiver_imput, Convertet_output_lowes, Convertet_output_highest, receiver_imput_lowest=982, receiver_imput_highest=2006):
 
-    rc_sr = rc_ui - rc_di
+    receiver_signal_range = receiver_imput_highest - receiver_imput_lowest
 
-    print(rc_rx + 1000, (((rc_urx - rc_drx) / rc_sr) * (rc_sr - (rc_ui - rc_rx))) + rc_drx)
-    # return (((rc_urx - rc_drx) / rc_sr) * (rc_sr - (rc_ui - rc_rx))) + rc_drx
+    return (((Convertet_output_highest - Convertet_output_lowes) / receiver_signal_range) * (receiver_signal_range - (receiver_imput_highest - receiver_imput))) + Convertet_output_lowes
 
 
 if __name__ == '__main__':
-    print(rci_enc(int(1400)))
-    print(rci_enc(int(982)))
+    print(rci_enc(int(1400), -1, 1))
