@@ -9,4 +9,4 @@ while True:
 
     receiver_signal_range = receiver_imput_highest - receiver_imput_lowest
 
-    return (((Convertet_output_highest - Convertet_output_lowes) / receiver_signal_range) * (receiver_signal_range - (receiver_imput_highest - receiver_imput))) + Convertet_output_lowes
+    print(((Convertet_output_highest - Convertet_output_lowes) / receiver_signal_range) * (receiver_signal_range - (receiver_imput_highest - receiver_imput))) + Convertet_output_lowes
