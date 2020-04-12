@@ -1,6 +1,7 @@
 
 
 def rci_enc(rc_rx, rc_drx=-1, rc_urx=1, rc_di=982, rc_ui=2006):
+    print(rc_rx)
 
     rc_sr = rc_ui - rc_di
 
