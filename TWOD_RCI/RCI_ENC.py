@@ -1,5 +1,5 @@
 
-def rci_enc(rtx, drtx=1.100, urtx=1.940, dsr=982, usr=2006):
+def rci_enc(rtx, drtx=-1, urtx=1, dsr=982, usr=2006):
 
     rsr = usr - dsr
 
