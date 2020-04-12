@@ -1,6 +1,7 @@
 def rci_enc(rtx, drtx=-1, urtx=1, dsr=982, usr=2006):
 
     print((((abs(drtx) + urtx) / (usr - dsr)) * (rtx - dsr)) + drtx)
+    print(rtx)
 
 
 if __name__ == '__main__':
