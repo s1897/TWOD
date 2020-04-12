@@ -4,7 +4,7 @@ from TWOD_NA2.util import *
 
 check_apm()
 
-from RCI_ENC import rci_enc
+from RCI_ENC import *
 
 rcin = RCInput()
 
@@ -12,6 +12,7 @@ rcin = RCInput()
 # def rci(rc_channl):
 #     return int(rcin.read(rc_channl))
 
-def rci(rc_channl, rc_drx=-1, rc_urx=1, rc_di=982, rc_ui=2006):
-    h = int(rcin.read(rc_channl))
-    return rci_enc(h, rc_drx, rc_urx, rc_di, rc_ui)
+def rci(rc_channl):
+    rc_rx = int(rcin.read(rc_channl))
+    h = rci_enc(rc_rx)
+    return h

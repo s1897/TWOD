@@ -1,5 +1,6 @@
 
-def rci_enc(rc_rx, rc_drx, rc_urx, rc_di, rc_ui):
+
+def rci_enc(rc_rx, rc_drx=-1, rc_urx=1, rc_di=982, rc_ui=2006):
 
     rc_sr = rc_ui - rc_di
 
@@ -7,4 +8,4 @@ def rci_enc(rc_rx, rc_drx, rc_urx, rc_di, rc_ui):
 
 
 if __name__ == '__main__':
-    print(rci_enc(150, -1, 1, 100, 200))
+    print(rci_enc((2006 - 982) / 2 + 982))
