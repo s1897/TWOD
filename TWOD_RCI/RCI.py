@@ -13,7 +13,7 @@ rcin = RCInput()
 
 def rci(rc_channl):
     receiver_imput = int(rcin.read(rc_channl))
-    Convertet_output_lowes = -1
+    Convertet_output_lowes = 0
     Convertet_output_highest = 1
     receiver_imput_lowest = 982
     receiver_imput_highest = 2006
