@@ -6,14 +6,17 @@
 # ██   ██ ██   ██ ██
 
 # rri = reads receiver input and converts it. the values ​​are then saved in a directory
+#
 # rpd = register psition directory
 # rcd = register cannal directory
 # rcn = receiver cannal name
+# rie = receiver imput encoder
 #
-
+#
 
 # import of required directories
 from NA2.rcinput import RCInput
+from RIM.rie import rie
 
 
 # define read receiver imput
