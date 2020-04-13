@@ -68,6 +68,8 @@ def rri(rcd, rpd):
         if tpd = dict():
             break
 
+    print("fin")
+
 
 if __name__ == '__main__':
     rcd = {'rcn_00': None, 'rcn_01': None, 'rcn_02': None, 'rcn_03': None, 'rcn_04': None, 'rcn_05': None, 'rcn_06': None, 'rcn_07': None}
