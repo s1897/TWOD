@@ -56,8 +56,8 @@ def rri(rpd):
         for tpn in tpd:
             if tpd[tpn] > 0.9 and rpd["rpn_" + tpn.split("_")[-1]] == None:
 
-                # set led color to Green
-                led.setColor('Green')
+                # set led color to White
+                led.setColor('White')
 
                 while True:
 
@@ -88,6 +88,9 @@ def rri(rpd):
         # the loop is interrupted when the temporary positions directory has no more value
         if tpd == dict():
             break
+
+    # set led color to Green
+    led.setColor('Green')
 
     # returns register psition directory
     return rpd
