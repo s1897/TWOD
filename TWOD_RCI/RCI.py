@@ -1,7 +1,7 @@
 
 from TWOD_NA2.rcinput import *
 from TWOD_NA2.util import *
-from TWOD_RCI.RCI import *
+from TWOD_RCI.RIE import *
 
 check_apm()
 
