@@ -5,7 +5,6 @@ for t in rcd:
     tpd["tpn_" + t.split("_")[-1]] = int(t.split("_")[-1])
 
 
-tpd.__delitem__("tpn_00")
 tpd.__delitem__("tpn_01")
 tpd.__delitem__("tpn_02")
 tpd.__delitem__("tpn_03")
@@ -14,5 +13,5 @@ tpd.__delitem__("tpn_05")
 tpd.__delitem__("tpn_06")
 tpd.__delitem__("tpn_07")
 print(tpd)
-if tpd == dict():
-    print("lol")
+if "tpn_00" in tpd:
+    print("l")
