@@ -14,7 +14,10 @@
 # rpn = receiver psition name
 # rcd = register cannal directory
 # rcn = receiver cannal name
+# tpd = temporary positions directory
+# tpn = temporary positions name
 # nri = navio2 receiver imput
+# pcn = psition control nummer
 #
 #
 
@@ -31,19 +34,39 @@ def rri(rcd, rpd):
     # registration function reciver imput
     nri = RCInput()
 
+    # construct temporary positions directory
+    tpd = {}
+    for tpn in rcd:
+        tpd["tpn_" + tpn.split("_")[-1]] = None
+
+    pcn = 0
+
     # puts the register psition directory together
     while True:
 
-        # puts the convertet receiver imput into the receiver channel directory
-        for rcn in rcd:
-            rcd[rcn] = rie(int(nri.read(int(rcn.split("_")[-1]))))
+        for tpn in tpd:
+            tpd[tpn] = rie(int(nri.read(int(tpn.split("_")[-1]))))
 
-        print(rcd)
+        for tpn in tpd:
+            if tpd[tpn] > 0.9 and rpd["rpn_" + tpn.split("_")[-1]] == None:
 
-# check_apm()
-# rcin = RCInput()
-# def rri(rc_cn):
-#     return rie(float(rcin.read(rc_channl)))
+                while True:
+
+                    # puts the convertet receiver imput into the receiver channel directory
+                    tpd[tpn] = rie(int(nri.read(int(tpn.split("_")[-1]))))
+
+                    if tpd[tpn] < -0.9 and rpd["rpn_" + tpn.split("_")[-1]] == None:
+
+                        rpd["rpn_" + tpn.split("_")[-1]] = pcn
+
+                        tpd.__delitem__(tpn)
+
+                        pcn += 1
+
+                        break
+
+        if tpd = dict():
+            break
 
 
 if __name__ == '__main__':
@@ -51,9 +74,6 @@ if __name__ == '__main__':
     rpd = {'rpn_00': None, 'rpn_01': None, 'rpn_02': None, 'rpn_03': None, 'rpn_04': None, 'rpn_05': None, 'rpn_06': None, 'rpn_07': None}
     rri(rcd, rpd)
 
-    # construct temporary positions directory
-    # tpd = temporary positions directory
-    # tpn = temporary positions name
-    # tpd = {}
-    # for tpn in rcd:
-    #     tpd["tpd_" + tpn.split("_")[-1]] = int(tpn.split("_")[-1])
+    # puts the convertet receiver imputs into the receiver channel directory
+    # for rcn in rcd:
+    #     rcd[rcn] = rie(int(nri.read(int(rcn.split("_")[-1]))))
