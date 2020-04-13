@@ -50,6 +50,8 @@ def rri(rcd, rpd):
         for tpn in tpd:
             if tpd[tpn] > 0.9 and rpd["rpn_" + tpn.split("_")[-1]] == None:
 
+                print(tpn, "1")
+
                 while True:
 
                     # puts the convertet receiver imput into the receiver channel directory
@@ -57,13 +59,17 @@ def rri(rcd, rpd):
 
                     if tpd[tpn] < -0.9 and rpd["rpn_" + tpn.split("_")[-1]] == None:
 
-                        rpd["rpn_" + tpn.split("_")[-1]] = pcn
+                        print(tpn, "-1")
 
-                        tpd.__delitem__(tpn)
+                        rpd["rpn_" + tpn.split("_")[-1]] = pcn
 
                         pcn += 1
 
                         break
+
+        for rpn in rpd:
+            if rpd[rpn] != None:
+                tpd.__delitem__("tpn_" + rpn.split("_")[-1])
 
         if tpd == dict():
             break
