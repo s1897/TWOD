@@ -16,7 +16,8 @@
 
 # import of required directories
 from NA2.rcinput import RCInput
-from RIM.rie import rie
+# from RIM.rie import rie
+from rie import rie
 
 
 # define read receiver imput
