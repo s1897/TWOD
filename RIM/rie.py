@@ -18,6 +18,7 @@
 # rte   = return the encode
 
 
+# define receiver imput encoder
 def rie(rri, elo=-1, eho=1, lsr=982, hsr=2006):
 
     # calculates total step range
