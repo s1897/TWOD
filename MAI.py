@@ -6,13 +6,20 @@
 # ██      ██ ██   ██ ██
 
 # mai = main
+#
+#
+# rpd = register psition directory
+# rcd = register cannal directory
+#
+#
 
-# imports
+# import of required directories
 from RIM.rri import rri
-from PWM.PWM import pwm
+from RIM.rrc import rrc
+from RIM.rrp import rrp
 
 
-# initialize
+rcd = rrc(rca=8)
+rpd = rrp(rca=8)
 
-
-# main
+rri(rcd, rpd)

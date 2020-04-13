@@ -5,7 +5,7 @@
 ██   ██ ██  ██ ██ ██  ██  ██
 ██   ██ ██   ████ ██      ██
 
-rnm = read name manual
+nei = name explanation instructions
 
 rim = receiver input management
 rri = read receiver imput

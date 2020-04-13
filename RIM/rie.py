@@ -5,7 +5,8 @@
 # ██   ██ ██ ██
 # ██   ██ ██ ███████
 
-# rie = receiver imput encoder
+# rie = receiver imput encoder, takes the raw input of the receiver and converts it to specified values
+#
 #
 # rri   = raw receiver imput
 # elo   = encoder lowest output
@@ -15,7 +16,9 @@
 # tsr   = total step range
 # sss   = single step size
 # mss   = multiplier step size
-# rte   = return the encode
+# eri   = encodet receiver imput
+#
+#
 
 
 # define receiver imput encoder
@@ -31,10 +34,10 @@ def rie(rri, elo=-1, eho=1, lsr=982, hsr=2006):
     mss = tsr - (hsr - rri)
 
     # multiplie single step size whit multiplier step size and add encoder lowest output
-    rte = sss * mss + elo
+    eri = sss * mss + elo
 
-    # return the encode receiver imput
-    return rte
+    # returns encodet receiver imput
+    return eri
 
 
 if __name__ == '__main__':
