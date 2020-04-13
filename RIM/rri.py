@@ -26,6 +26,6 @@ def rri(rcd, rpd):
     nri = RCInput()
 
     for rpn in rpd:
-        rcd["rcn_" + tpn.split("_")[-1]] = rie(int(nri.read(int(rpd[rpn]))))
+        rcd["rcn_" + rpn.split("_")[-1]] = rie(int(nri.read(int(rpd[rpn]))))
 
     return rcd
