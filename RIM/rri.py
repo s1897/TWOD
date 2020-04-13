@@ -41,4 +41,4 @@ if __name__ == '__main__':
     while True:
         rcd = rri(rcd, rpd)
         print(rcd)
-        sleep(0.1)
+        sleep(1)
