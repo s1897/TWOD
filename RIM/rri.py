@@ -66,9 +66,9 @@ def rri(rcd, rpd):
                         pcn += 1
 
                         break
-        print(tpd, rpd)
+
         for rpn in rpd:
-            if rpd[rpn] != None:
+            if rpd[rpn] != None and tpd["tpn_" + rpn.split("_")[-1]]:
                 tpd.__delitem__("tpn_" + rpn.split("_")[-1])
 
         if tpd == dict():
