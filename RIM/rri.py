@@ -25,6 +25,7 @@
 from NA2.rcinput import RCInput
 from NA2.util import check_apm
 from RIM.rie import rie
+from RIM.rrc import rrc
 
 
 # define read receiver imput
