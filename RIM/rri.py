@@ -27,6 +27,8 @@ from NA2.util import check_apm
 from RIM.rie import rie
 from RIM.rrc import rrc
 
+print(check_apm())
+
 
 # define read receiver imput
 def rri(rpd):
