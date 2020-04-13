@@ -23,3 +23,5 @@ rcd = rrc(rca=8)
 rpd = rrp(rca=8)
 
 rri(rcd, rpd)
+
+pint("finmai")
