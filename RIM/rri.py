@@ -18,6 +18,7 @@
 from NA2.rcinput import RCInput
 # from RIM.rie import rie
 from rie import rie
+from time import sleep
 
 
 # define read receiver imput
@@ -40,3 +41,4 @@ if __name__ == '__main__':
     while True:
         rcd = rri(rcd, rpd)
         print(rcd)
+        sleep(0.1)
