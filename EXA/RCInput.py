@@ -1,4 +1,5 @@
-import sys, time
+import sys
+import time
 
 import navio.rcinput
 import navio.util
@@ -9,5 +10,5 @@ rcin = navio.rcinput.RCInput()
 
 while (True):
     period = rcin.read(2)
-    print period
-    time.sleep(1)
+    print(period)
+    time.sleep(0.001)
