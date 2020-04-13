@@ -22,6 +22,6 @@ from RIM.rrp import rrp
 rcd = rrc(rca=8)
 rpd = rrp(rca=8)
 
-rri(rcd, rpd)
+print(rri(rcd))
 
 print("finmai")

@@ -25,18 +25,17 @@
 from NA2.rcinput import RCInput
 from NA2.util import check_apm
 from RIM.rie import rie
-from RIM.rrc import rrc
 
 
 # define read receiver imput
-def rri(rcd, rpd):
+def rri(rpd):
 
     # registration function reciver imput
     nri = RCInput()
 
     # construct temporary positions directory
     tpd = {}
-    for tpn in rcd:
+    for tpn in rpd:
         tpd["tpn_" + tpn.split("_")[-1]] = None
 
     pcn = 0
@@ -69,12 +68,12 @@ def rri(rcd, rpd):
 
         for rpn in rpd:
             if rpd[rpn] != None and "tpn_" + rpn.split("_")[-1] in tpd:
-                tpd.__delitem__("tpn_" + rpn.split("_")[-1])
+                tpd.__delitem__("tpn_" + rpn.split("_") - 1])
 
         if tpd == dict():
             break
 
-    print("fin")
+    return rpd
 
 
 if __name__ == '__main__':
