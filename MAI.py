@@ -24,4 +24,4 @@ rpd = rrp(rca=8)
 
 rri(rcd, rpd)
 
-pint("finmai")
+print("finmai")
