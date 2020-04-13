@@ -18,23 +18,23 @@
 # tpn = temporary positions name
 # nri = navio2 receiver imput
 # pcn = psition control nummer
+# led = light emitting diode
 #
 #
 
 # import of required directories
 from NA2.rcinput import RCInput
-from NA2.util import check_apm
+from NA2.leds import Led
 from RIM.rie import rie
 from RIM.rrc import rrc
-
-print(check_apm())
 
 
 # define read receiver imput
 def rri(rpd):
 
-    # registration function reciver imput
+    # registration function reciver imput and leds
     nri = RCInput()
+    led = Led()
 
     # construct temporary positions directory
     tpd = {}
@@ -56,6 +56,9 @@ def rri(rpd):
         for tpn in tpd:
             if tpd[tpn] > 0.9 and rpd["rpn_" + tpn.split("_")[-1]] == None:
 
+                # set led color to Green
+                led.setColor('Green')
+
                 while True:
 
                     # update the convertet receiver imput into the receiver channel directory
@@ -64,6 +67,9 @@ def rri(rpd):
                     # tests whether one of the values ​​comes from the temporary positions directory under -0.9 and
                     # whether the register psition directory with the same number contains the value None
                     if tpd[tpn] < -0.9 and rpd["rpn_" + tpn.split("_")[-1]] == None:
+
+                        # set led color to Black
+                        led.setColor('Black')
 
                         # set the position value in the register psition directory
                         rpd["rpn_" + tpn.split("_")[-1]] = pcn
