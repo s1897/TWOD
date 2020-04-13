@@ -65,7 +65,7 @@ def rri(rcd, rpd):
 
                         break
 
-        if tpd = dict():
+        if tpd == dict():
             break
 
     print("fin")
