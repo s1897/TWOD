@@ -49,7 +49,7 @@ def irc(rpd):
         # tests whether one of the values ​​comes from the temporary positions directory above 0.9 and
         # whether the register psition directory with the same number contains the value None.
         for tpn in tpd:
-            if tpd[tpn] > 0.9 and rpd["rpn_" + tpn.split("_")[-1]] == None:
+            if tpd[tpn] > 0.9 and rpd["rcn_" + tpn.split("_")[-1]] == None:
 
                 # set led color to White
                 led.setColor('White')
@@ -61,13 +61,13 @@ def irc(rpd):
 
                     # tests whether one of the values ​​comes from the temporary positions directory under -0.9 and
                     # whether the register psition directory with the same number contains the value None
-                    if tpd[tpn] < -0.9 and rpd["rpn_" + tpn.split("_")[-1]] == None:
+                    if tpd[tpn] < -0.9 and rpd["rcn_" + tpn.split("_")[-1]] == None:
 
                         # set led color to Black
                         led.setColor('Black')
 
                         # set the position value in the register psition directory
-                        rpd["rpn_" + tpn.split("_")[-1]] = pcn
+                        rpd["rcn_" + tpn.split("_")[-1]] = pcn
 
                         # add one to psition control nummer and break the while loop
                         pcn += 1
