@@ -33,5 +33,4 @@ rpd = (irc(rpd))
 while True:
 
     rcd = rri(rcd, rpd)
-    sleep(0.2)
     print(rcd)
