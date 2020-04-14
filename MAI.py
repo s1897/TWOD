@@ -23,6 +23,7 @@ from RIM.rrc import rrc
 from RIM.rrp import rrp
 from RIM.rri import rri
 from time import sleep
+from NA2.rcinput import RCInput
 from RIM.rie import rie
 
 rcd = rrc(rca=8)
