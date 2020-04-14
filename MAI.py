@@ -37,6 +37,8 @@ while True:
     nri = RCInput()
 
     for rpn in rpd:
-        rcd["rcn_" + rpn.split("_")[-1]] = rie(int(nri.read(rpd[rpn])))
+        rcd[rpn] = rie(int(nri.read(rpd[rpn])))
 
     print(rcd)
+
+# "rcn_" + rpn.split("_")[-1]
