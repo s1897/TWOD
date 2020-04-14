@@ -27,6 +27,6 @@ if __name__ == '__main__':
         t = []
 
         for r in range(8):
-            t.append(h.read(0))
+            t.append(h.read(r))
 
         print(t)
