@@ -11,7 +11,14 @@ class RCInput():
                 continue
                 # print("Can't open file /sys/kernel/rcio/rcin/ch%d" % i)
 
+        print(channels)
+
     def read(self, ch):
         value = self.channels[ch].read()
         position = self.channels[ch].seek(0, 0)
         return value[:-1]
+
+
+if __name__ == '__main__':
+    h = RCInput()
+    print(h.read(0))
