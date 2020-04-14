@@ -23,7 +23,7 @@ from RIM.rrc import rrc
 from RIM.rrp import rrp
 from RIM.rri import rri
 from time import sleep
-
+from RIM.rie import rie
 
 rcd = rrc(rca=8)
 rpd = rrp(rca=8)
@@ -32,4 +32,10 @@ rpd = (irc(rpd))
 
 while True:
 
-    rcd = rri(rcd, rpd)
+    # rcd = rri(rcd, rpd)
+    nri = RCInput()
+
+    for rpn in rpd:
+        rcd["rcn_" + rpn.split("_")[-1]] = rie(int(nri.read(rpd[rpn])))
+
+    print(rcd)
