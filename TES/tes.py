@@ -21,4 +21,4 @@ i = 0
 while True:
 
     f = open("/sys/kernel/rcio/rcin/ch%d" % i, "r")
-    print(f.read())
+    print(int(f.read()[:-1]))
