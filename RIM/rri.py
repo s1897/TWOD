@@ -25,10 +25,7 @@ def rri(rcd, rpd):
     # registration function reciver imput
     nri = RCInput()
 
-    for rcn in rcd:
-        rcd[rcn] = rie(int(nri.read(int(rcn.split("_")[-1]))))
-
-    # for rpn in rpd:
-    #     rcd["rcn_" + rpn.split("_")[-1]] = rie(int(nri.read(int(rpd[rpn]))))
+    for rpn in rpd:
+        rcd["rcn_" + rpn.split("_")[-1]] = rie(int(nri.read(int(rpd[rpn]))))
 
     return rcd

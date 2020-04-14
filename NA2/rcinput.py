@@ -8,7 +8,8 @@ class RCInput():
                 f = open("/sys/kernel/rcio/rcin/ch%d" % i, "r")
                 self.channels.append(f)
             except:
-                print("Can't open file /sys/kernel/rcio/rcin/ch%d" % i)
+                continue
+                # print("Can't open file /sys/kernel/rcio/rcin/ch%d" % i)
 
     def read(self, ch):
         value = self.channels[ch].read()
