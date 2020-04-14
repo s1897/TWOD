@@ -22,6 +22,7 @@ from RIM.irc import irc
 from RIM.rrc import rrc
 from RIM.rrp import rrp
 from RIM.rri import rri
+from time import sleep
 
 
 rcd = rrc(rca=8)
@@ -32,4 +33,5 @@ rpd = (irc(rpd))
 while True:
 
     rcd = rri(rcd, rpd)
+    sleep(0.2)
     print(rcd)
