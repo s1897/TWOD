@@ -16,9 +16,10 @@
 # if "tpn_00" in tpd:
 #     print("l")
 
-i = 0
 
 while True:
-
-    f = open("/sys/kernel/rcio/rcin/ch%d" % i, "r")
-    print(int(f.read()[:-1]))
+    t = []
+    for i in range(8):
+        f = open("/sys/kernel/rcio/rcin/ch%d" % i, "r")
+        t.append(int(f.read()[:-1]))
+    print(t)
