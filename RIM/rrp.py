@@ -25,7 +25,7 @@ def rrp(rca=8):
     sle = str(len(list(str(rca))) + 1)
 
     # construct identification string name
-    rsn = "rpn_{:0" + sle + "d}"
+    rsn = "rcn_{:0" + sle + "d}"
 
     # construct register string director
     rpd = dict(map(lambda x: (rsn.format(x), None), range(rca)))
