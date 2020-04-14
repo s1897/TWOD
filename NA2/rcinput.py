@@ -11,7 +11,7 @@ class RCInput():
                 continue
                 # print("Can't open file /sys/kernel/rcio/rcin/ch%d" % i)
 
-            # print(self.channels)
+            print(self.channels)
 
     def read(self, ch):
         value = self.channels[ch]
