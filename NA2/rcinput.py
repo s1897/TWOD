@@ -6,7 +6,7 @@ class RCInput():
         for i in range(0, self.CHANNEL_COUNT):
             try:
                 f = open("/sys/kernel/rcio/rcin/ch%d" % i, "r")
-                self.channels.append(f)
+                self.channels.append(f.read())
             except:
                 continue
                 # print("Can't open file /sys/kernel/rcio/rcin/ch%d" % i)
