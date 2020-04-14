@@ -33,12 +33,6 @@ rpd = (irc(rpd))
 
 while True:
 
-    # rcd = rri(rcd, rpd)
-    nri = RCInput()
-
-    for rpn in rpd:
-        rcd[rpn] = rie(int(nri.read(rpd[rpn])))
+    rcd = rri(rcd, rpd)
 
     print(rcd)
-
-# "rcn_" + rpn.split("_")[-1]
