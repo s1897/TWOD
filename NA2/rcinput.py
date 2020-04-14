@@ -14,8 +14,8 @@ class RCInput():
             print(self.channels)
 
     def read(self, ch):
-        value = self.channels[ch].read()
-        position = self.channels[ch].seek(0, 0)
+        value = self.channels[ch]
+        # position = self.channels[ch].seek(0, 0)
         return value[:-1]
 
 
