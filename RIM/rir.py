@@ -38,6 +38,7 @@ def rir(rid, rpd):
             break
 
     # returns the register imput directory
+    print(rid)
     return rid
 
 
