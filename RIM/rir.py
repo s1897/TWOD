@@ -29,7 +29,6 @@ def rir(rid):
 
         except:
             # file could not be opened, so it will be tried again
-            print("i")
             continue
 
         else:
@@ -44,4 +43,4 @@ if __name__ == '__main__':
     rid = {'rin_00': None, 'rin_01': None, 'rin_02': None, 'rin_03': None, 'rin_04': None, 'rin_05': None, 'rin_06': None, 'rin_07': None}
 
     while True:
-        print(rir(rid))
+        print(rir({"tpn_02"}))

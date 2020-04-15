@@ -19,16 +19,14 @@
 #
 
 # import of required directories
-from NA2.rcinput import RCInput
 from NA2.leds import Led
-from RIM.rie import rie
+from RIM.rir import rir
 
 
 # define read receiver imput
 def irc(rpd):
 
     # registration function reciver imput and leds
-    nri = RCInput()
     led = Led()
 
     # construct temporary positions directory
@@ -43,8 +41,7 @@ def irc(rpd):
     while True:
 
         # converted and add receiver input to temporary positions directory and update them
-        for tpn in tpd:
-            tpd[tpn] = rie(int(nri.read(int(tpn.split("_")[-1]))))
+        tpd = rir(rid)
 
         # tests whether one of the values ​​comes from the temporary positions directory above 0.9 and
         # whether the register psition directory with the same number contains the value None.
@@ -57,7 +54,7 @@ def irc(rpd):
                 while True:
 
                     # update the convertet receiver imput into the receiver channel directory
-                    tpd[tpn] = rie(int(nri.read(int(tpn.split("_")[-1]))))
+                    tpd[tpn] = rir(rid)
 
                     # tests whether one of the values ​​comes from the temporary positions directory under -0.9 and
                     # whether the register psition directory with the same number contains the value None
