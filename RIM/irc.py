@@ -54,7 +54,7 @@ def irc(rpd):
                 while True:
 
                     # update the convertet receiver imput into the receiver channel directory
-                    tpd[tpn] = rir(rid)
+                    tpd[tpn] = rir({tpn: tpd[tpn]})
 
                     # tests whether one of the values ​​comes from the temporary positions directory under -0.9 and
                     # whether the register psition directory with the same number contains the value None
