@@ -41,7 +41,7 @@ def irc(rpd):
     while True:
 
         # converted and add receiver input to temporary positions directory and update them
-        tpd = rir(rid)
+        tpd = rir(tpd)
 
         # tests whether one of the values ​​comes from the temporary positions directory above 0.9 and
         # whether the register psition directory with the same number contains the value None.
