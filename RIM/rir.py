@@ -29,6 +29,7 @@ def rir(rid):
 
         except:
             # file could not be opened, so it will be tried again
+            print("i")
             continue
 
         else:
