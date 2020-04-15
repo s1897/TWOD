@@ -23,6 +23,7 @@
 
 # import of required directories
 from RIM.irc import irc
+from RIM.rir import rir
 
 # import of required directory
 from RIM.RRD.rrc import rrc
@@ -36,9 +37,7 @@ rid = rri(rca=8)
 
 #
 # rpd = (irc(rpd))
-#
-# while True:
-#
-#     rcd = rri(rcd, rpd)
-#
-#     print(rcd)
+
+while True:
+
+    print()

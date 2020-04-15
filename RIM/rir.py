@@ -7,26 +7,35 @@
 
 # rir = raw imput receiver
 #
-
+# rie = receiver imput encoder
+# rid = register imput directory
+# rin = receiver imput name
+#
+#
 
 # import of required directories
-# from RIM.rie import rie
 from rie import rie
 
 
 # define read receiver imput
 def rir(rid):
 
+    # trys to open the raw imput resiver files
     while True:
         try:
+            # reads all pre-defined files and saves all data in a directory
             for rin in rid:
                 rid[rin] = rie(int(open("/sys/kernel/rcio/rcin/ch{}".format(int(rin.split("_")[-1])), "r").read()[:-1]))
+
         except:
+            # file could not be opened, so it will be tried again
             continue
 
         else:
+            # file could be opened, this ended the try loop
             break
 
+    # returns the register imput directory
     return rid
 
 
@@ -35,13 +44,3 @@ if __name__ == '__main__':
 
     while True:
         print(rir(rid))
-
-# while True:
-#     t = []
-#     for i in range(8):
-#         try:
-#             f = open("/sys/kernel/rcio/rcin/ch%d" % i, "r")
-#             t.append(int(f.read()[:-1]))
-#         except:
-#             continue
-#     print(t)
