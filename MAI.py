@@ -41,3 +41,4 @@ rid = rri(rca=8)
 while True:
 
     rid = rir(rid)
+    print(rid)
