@@ -27,7 +27,7 @@ def rri(rca=8):
     rsn = "rin_{:0" + sle + "d}"
 
     # construct register string director
-    rid = dict(map(lambda x: (rsn.format(x), None), range(rca)))
+    rid = dict(map(lambda x: (rsn.format(x), x), range(rca)))
 
     return rid
 

@@ -20,14 +20,14 @@ from RIM.rie import rie
 # define read receiver imput
 
 
-def rir(rid):
+def rir(rid, rpd):
 
     # trys to open the raw imput resiver files
     while True:
         try:
             # reads all pre-defined files and saves all data in a directory
-            for rin in rid:
-                rid[rin] = rie(int(open("/sys/kernel/rcio/rcin/ch{}".format(int(rin.split("_")[-1])), "r").read()[:-1]))
+            for rpn in rpd:
+                rid["rin_" + rpn.split("_")[-1]] = rie(int(open("/sys/kernel/rcio/rcin/ch{}".format(int(rpn.split("_")[-1])), "r").read()[:-1]))
 
         except:
             # file could not be opened, so it will be tried again

@@ -24,7 +24,7 @@ from RIM.rir import rir
 
 
 # define read receiver imput
-def irc(rpd):
+def irc(rpd, rid):
 
     # registration function reciver imput and leds
     led = Led()
@@ -41,7 +41,7 @@ def irc(rpd):
     while True:
 
         # converted and add receiver input to temporary positions directory and update them
-        tpd = rir(tpd)
+        tpd = rir(tpd, rid)
 
         # tests whether one of the values ​​comes from the temporary positions directory above 0.9 and
         # whether the register psition directory with the same number contains the value None.
@@ -54,7 +54,7 @@ def irc(rpd):
                 while True:
 
                     # update the convertet receiver imput into the receiver channel directory
-                    tpd[tpn] = rir({tpn: tpd[tpn]})[tpn]
+                    tpd[tpn] = rir({tpn: tpd[tpn]}, rid)[tpn]
 
                     # tests whether one of the values ​​comes from the temporary positions directory under -0.9 and
                     # whether the register psition directory with the same number contains the value None

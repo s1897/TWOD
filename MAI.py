@@ -28,17 +28,19 @@ from RIM.rir import rir
 # import of required directory
 from RIM.RRD.rrc import rrc
 from RIM.RRD.rrp import rrp
+from RIM.RRD.rri import rri
 
 rca = 8
 
 rcd = rrc(rca)
 rpd = rrp(rca)
+rid = rri(rca)
 
 
-rpd = irc(rpd)
+rpd = irc(rpd, rid)
 
 
 while True:
 
-    rcd = rir(rcd,)
+    rcd = rir(rcd, rpd)
     print(rid)
