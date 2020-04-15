@@ -14,10 +14,12 @@
 #
 
 # import of required directories
-from RIM.rie import rie
-
+# from RIM.rie import rie
+from rie import rie
 
 # define read receiver imput
+
+
 def rir(rid):
 
     # trys to open the raw imput resiver files
