@@ -9,7 +9,6 @@
 #
 #
 # rca = receiver cannal amount
-# rie = receiver imput encoder
 # rsn = register string name
 # rpd = register psition directory
 # rpn = receiver psition name

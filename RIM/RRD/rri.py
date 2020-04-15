@@ -1,37 +1,36 @@
 
-# ██████  ██████   ██████
+# ██████  ██████  ██
 # ██   ██ ██   ██ ██
 # ██████  ██████  ██
 # ██   ██ ██   ██ ██
-# ██   ██ ██   ██  ██████
+# ██   ██ ██   ██ ██
 
-# rrc = register receiver channels
-#
+# rri = register reciver imput
 #
 # rca = receiver cannal amount
-# rie = receiver imput encoder
 # rsn = register string name
-# rcd = register cannal directory
-# rcn = receiver cannal name
+# rid = register imput directory
+# rin = receiver imput name
 # sle = string length encoder
 #
 #
 
+# define register reciver imput
 
-# define register receiver channels
-def rrc(rca=8):
+
+def rri(rca=8):
 
     # converts receiver channel amount to string length encoder
     sle = str(len(list(str(rca))) + 1)
 
     # construct identification string name
-    rsn = "rcn_{:0" + sle + "d}"
+    rsn = "rin_{:0" + sle + "d}"
 
     # construct register string director
-    rcd = dict(map(lambda x: (rsn.format(x), None), range(rca)))
+    rid = dict(map(lambda x: (rsn.format(x), None), range(rca)))
 
-    return rcd
+    return rid
 
 
 if __name__ == '__main__':
-    print(rrc())
+    print(rri())

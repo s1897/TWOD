@@ -7,32 +7,38 @@
 
 # mai = main
 #
-# rpd = register psition directory
-# rcd = register cannal directory
-# rri = reads receiver input
-# rrp = register receiver psition
-# rrc = register receiver channels
 # irc = initialisieren receiver control
+#
+# rrc = register receiver channels
+# rrp = register receiver psition
+# rri = register reciver imput
+#
+# rcd = register cannal directory
+# rpd = register psition directory
+# rid = register imput directory
+#
 # rca = receiver cannal amount
 #
 #
 
 # import of required directories
 from RIM.irc import irc
-from RIM.rrc import rrc
-from RIM.rrp import rrp
-from RIM.rri import rri
-from time import sleep
-from NA2.rcinput import RCInput
-from RIM.rie import rie
+
+# import of required directory
+from RIM.RRD.rrc import rrc
+from RIM.RRD.rrp import rrp
+from RIM.RRD.rri import rri
+
 
 rcd = rrc(rca=8)
 rpd = rrp(rca=8)
+rid = rri(rca=8)
 
-rpd = (irc(rpd))
-
-while True:
-
-    rcd = rri(rcd, rpd)
-
-    print(rcd)
+#
+# rpd = (irc(rpd))
+#
+# while True:
+#
+#     rcd = rri(rcd, rpd)
+#
+#     print(rcd)

@@ -17,12 +17,14 @@
 #     print("l")
 
 
-while True:
-    t = []
-    for i in range(8):
-        try:
-            f = open("/sys/kernel/rcio/rcin/ch%d" % i, "r")
-            t.append(int(f.read()[:-1]))
-        except:
-            continue
-    print(t)
+# while True:
+#     t = []
+#     for i in range(8):
+#         try:
+#             f = open("/sys/kernel/rcio/rcin/ch%d" % i, "r")
+#             t.append(int(f.read()[:-1]))
+#         except:
+#             continue
+#     print(t)
+#
+# print(open("D:/RCSQDB/myCloud/TWOD/TES/tr.txt", "r").read())
