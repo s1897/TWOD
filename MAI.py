@@ -7,7 +7,7 @@
 
 # mai = main
 #
-# irc = initialisieren receiver control
+# irc = initialize receiver control
 #
 # rrc = register receiver channels
 # rrp = register receiver psition
@@ -28,17 +28,17 @@ from RIM.rir import rir
 # import of required directory
 from RIM.RRD.rrc import rrc
 from RIM.RRD.rrp import rrp
-from RIM.RRD.rri import rri
 
+rca = 8
 
-rcd = rrc(rca=8)
-rpd = rrp(rca=8)
-rid = rri(rca=8)
+rcd = rrc(rca)
+rpd = rrp(rca)
+
 
 rpd = irc(rpd)
 
 
 while True:
 
-    rid = rir(rid)
+    rcd = rir(rcd,)
     print(rid)

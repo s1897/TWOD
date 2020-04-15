@@ -5,7 +5,7 @@
 # ██ ██   ██ ██
 # ██ ██   ██  ██████
 
-# irc = initialisieren receiver control
+# irc = initialize receiver control
 #
 # rie = receiver imput encoder
 # rpd = register psition directory
