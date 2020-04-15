@@ -17,8 +17,15 @@ from rie import rie
 # define read receiver imput
 def rir(rid):
 
-    for rin in rid:
-        rid[rin] = rie(int(open("/sys/kernel/rcio/rcin/ch{}".format(int(rin.split("_")[-1])), "r").read()[:-1]))
+    while True:
+        try:
+            for rin in rid:
+                rid[rin] = rie(int(open("/sys/kernel/rcio/rcin/ch{}".format(int(rin.split("_")[-1])), "r").read()[:-1]))
+        except:
+            continue
+
+        else:
+            break
 
     return rid
 
