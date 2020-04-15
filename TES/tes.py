@@ -28,3 +28,6 @@
 #     print(t)
 #
 # print(open("D:/RCSQDB/myCloud/TWOD/TES/tr.txt", "r").read())
+t = {"tpn_02": None}
+for i in t:
+    print(i)
