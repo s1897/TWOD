@@ -14,7 +14,7 @@
 #
 
 # import of required directories
-from rie import rie
+from RIM.rie import rie
 
 
 # define read receiver imput
