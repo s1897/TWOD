@@ -28,6 +28,17 @@
 #     print(t)
 #
 # print(open("D:/RCSQDB/myCloud/TWOD/TES/tr.txt", "r").read())
-t = {"tpn_02": None}
-for i in t:
-    print(i)
+# t = {"tpn_02": None}
+# for i in t:
+#     print(i)
+
+# k = list(range(5))
+# t = list(range(1, 6))
+#
+# for g in k:
+#     print(g)
+
+rid = {'rin_00': None, 'rin_01': 1, 'rin_02': None, 'rin_03': None, 'rin_04': None, 'rin_05': None, 'rin_06': None, 'rin_07': None}
+
+T = list(iter(rid))[0].split("_")[0]
+print(T)

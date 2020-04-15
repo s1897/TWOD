@@ -10,7 +10,7 @@
 # rie = receiver imput encoder
 # rid = register imput directory
 # rin = receiver imput name
-#
+# gdn = get directory name
 #
 
 # import of required directories
@@ -22,12 +22,14 @@ from RIM.rie import rie
 
 def rir(rid, rpd):
 
+    gdn = list(iter(rid))[0].split("_")[0]
+
     # trys to open the raw imput resiver files
     while True:
         try:
             # reads all pre-defined files and saves all data in a directory
             for rpn in rpd:
-                rid["rin_" + rpn.split("_")[-1]] = rie(int(open("/sys/kernel/rcio/rcin/ch{}".format(int(rpn.split("_")[-1])), "r").read()[:-1]))
+                rid[gdn + "_" + rpn.split("_")[-1]] = rie(int(open("/sys/kernel/rcio/rcin/ch{}".format(int(rpn.split("_")[-1])), "r").read()[:-1]))
 
         except:
             # file could not be opened, so it will be tried again
