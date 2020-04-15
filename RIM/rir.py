@@ -30,7 +30,7 @@ def rir(rid, rpd):
         try:
             # reads all pre-defined files and saves all data in a directory
             for rpn in rpd:
-                rid[gdn + "_" + rpn.split("_")[-1]] = rie(int(open("/sys/kernel/rcio/rcin/ch{}".format(int(rpn.split("_")[-1])), "r").read()[:-1]))
+                rid[gdn + "_" + rpn.split("_")[-1]] = rie(int(open("/sys/kernel/rcio/rcin/ch{}".format(rpd[rpn]), "r").read()[:-1]))
 
         except:
             # file could not be opened, so it will be tried again
