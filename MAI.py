@@ -40,4 +40,4 @@ rid = rri(rca=8)
 
 while True:
 
-    print()
+    rid = rir(rid)
