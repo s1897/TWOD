@@ -43,4 +43,4 @@ rpd = irc(rpd, rid)
 while True:
 
     rcd = rir(rcd, rpd)
-    print(rid)
+    print(rcd)
