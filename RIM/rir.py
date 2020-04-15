@@ -13,9 +13,8 @@
 # from RIM.rie import rie
 from rie import rie
 
+
 # define read receiver imput
-
-
 def rir(rid):
 
     for rin in rid:
