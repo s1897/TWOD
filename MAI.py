@@ -35,8 +35,8 @@ rcd = rrc(rca=8)
 rpd = rrp(rca=8)
 rid = rri(rca=8)
 
-#
-# rpd = (irc(rpd))
+rpd = irc(rpd)
+
 
 while True:
 
