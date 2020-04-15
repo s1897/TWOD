@@ -29,6 +29,8 @@ from RIM.rir import rir
 from RIM.RRD.rrc import rrc
 from RIM.RRD.rrp import rrp
 from RIM.RRD.rri import rri
+from time import sleep
+
 
 rca = 8
 
@@ -40,6 +42,8 @@ rid = rri(rca)
 rpd = irc(rpd, rid)
 
 
+print(rpd)
+sleep(5)
 while True:
 
     rcd = rir(rcd, rpd)
