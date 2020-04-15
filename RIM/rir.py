@@ -22,6 +22,7 @@ from RIM.rie import rie
 
 def rir(rid, rpd):
 
+    # gets directorys key name
     gdn = list(iter(rid))[0].split("_")[0]
 
     # trys to open the raw imput resiver files
