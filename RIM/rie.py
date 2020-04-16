@@ -7,16 +7,15 @@
 
 # rie = receiver imput encoder, takes the raw input of the receiver and converts it to specified values
 #
-#
-# rir   = raw imput receiver
-# elo   = encoder lowest output
-# eho   = encoder highest outout
-# lsr   = lowest step range
-# hsr   = highest step range
-# tsr   = total step range
-# sss   = single step size
-# mss   = multiplier step size
-# eri   = encodet receiver imput
+# rir = raw imput receiver
+# elo = encoder lowest output
+# eho = encoder highest outout
+# lsr = lowest step range
+# hsr = highest step range
+# tsr = total step range
+# sss = single step size
+# mss = multiplier step size
+# eri = encodet receiver imput
 #
 #
 

@@ -34,7 +34,6 @@ def rir(sdi, pdi={'tpi_00': 0, 'tpi_01': 1, 'tpi_02': 2, 'tpi_03': 3, 'tpi_04': 
 
         except:
             # file could not be opened, so it will be tried again
-            print("ERROR")
             continue
 
         else:
