@@ -28,7 +28,6 @@ from RIM.rir import rir
 # import of required directory
 from RIM.RRD.rrc import rrc
 from RIM.RRD.rrp import rrp
-from RIM.RRD.rri import rri
 from time import sleep
 
 
@@ -36,10 +35,9 @@ rca = 8
 
 rcd = rrc(rca)
 rpd = rrp(rca)
-rid = rri(rca)
 
 
-rpd = irc(rpd, rid)
+rpd = irc(rpd)
 
 
 print(rpd)
