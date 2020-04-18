@@ -8,15 +8,9 @@
 # mai = main
 #
 # irc = initialize receiver control
-#
-# rrc = register receiver channels
-# rrp = register receiver psition
-# rri = register reciver imput
-#
-# rcd = register cannal directory
-# rpd = register psition directory
-# rid = register imput directory
-#
+# rir = raw imput receiver
+# cld = construct psition directory
+# ccd = construct cannal directory
 # rca = receiver cannal amount
 #
 #
@@ -26,23 +20,23 @@ from RIM.irc import irc
 from RIM.rir import rir
 
 # import of required directory
-from RIM.RRD.rrc import rrc
-from RIM.RRD.rrp import rrp
+from RIM.RRD.cld import cld
+from RIM.RRD.ccd import ccd
 from time import sleep
 
 
 rca = 8
 
-rcd = rrc(rca)
-rpd = rrp(rca)
+ccd = ccd(rca)
+cld = cld(rca)
 
 
-rpd = irc(rpd)
+cld = irc(cld)
 
 
-print(rpd)
+print(cld)
 sleep(5)
 while True:
 
-    rcd = rir(rcd, rpd)
-    print(rcd)
+    ccd = rir(ccd, cld)
+    print(ccd)

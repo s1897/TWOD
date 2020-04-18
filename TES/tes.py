@@ -38,7 +38,16 @@
 # for g in k:
 #     print(g)
 
-rid = {'rin_00': None, 'rin_01': 1, 'rin_02': None, 'rin_03': None, 'rin_04': None, 'rin_05': None, 'rin_06': None, 'rin_07': None}
+# rid = {'rin_00': None, 'rin_01': 1, 'rin_02': None, 'rin_03': None, 'rin_04': None, 'rin_05': None, 'rin_06': None, 'rin_07': None}
+#
+# T = list(iter(rid))[0].split("_")[0]
+# print(T)
 
-T = list(iter(rid))[0].split("_")[0]
-print(T)
+# def htz(l):
+#     htz = 5
+#     htz += l
+#
+#     return htz
+#
+#
+# print(htz(5))

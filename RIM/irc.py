@@ -7,7 +7,6 @@
 
 # irc = initialize receiver control
 #
-# rie = receiver imput encoder
 # sdi = set directory imput
 # sdn = set directory name
 # rtd = read temporary directory
