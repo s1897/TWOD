@@ -25,7 +25,7 @@ def pcd(rci, cdd, cpd):
     gdk = list(iter(cdd))[0].split("_")[0]
     grk = list(iter(rci))[0].split("_")[0]
 
-    t = {"x": rci["rcn_02"], "y": rci["rcn_03"]}
+    t = {"y": rci["rcn_02"], "x": rci["rcn_03"]}
 
     for cpn in cpd:
 
