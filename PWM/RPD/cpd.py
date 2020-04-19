@@ -25,7 +25,7 @@ def cpd(poa=6):
     cdk = "opn_{:0" + esl + "d}"
 
     # construct pwm directory
-    cpd = dict(map(lambda x: (cdk.format(x), {"+x": None, "-x": None, "+y": None, "-y": None, "+c": None, "-c": None}), range(poa)))
+    cpd = dict(map(lambda x: (cdk.format(x), None), range(poa)))
 
     return cpd
 

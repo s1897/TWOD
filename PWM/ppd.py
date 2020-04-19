@@ -66,23 +66,22 @@ def ppd(sdi, tea=5, ter=500, tes="I", eea=1, eer=72.663, ees="X"):
 
     for sdn in sdi:
         if tea != tec:
-            sdi[sdn][list(iter(sdi[sdn]))[0]] = round(ter * sin(radians(ted + (teg * (tec)))), 12)
-            sdi[sdn][list(iter(sdi[sdn]))[-1]] = round(ter * cos(radians(ted + (teg * (tec)))), 12)
+            sdi[sdn][list(iter(sdi[sdn]))[0]] = round(1 / ter * (ter * sin(radians(ted + (teg * (tec))))), 12)
+            sdi[sdn][list(iter(sdi[sdn]))[-1]] = round(1 / ter * (ter * cos(radians(ted + (teg * (tec))))), 12)
+
             tec += 1
 
         elif eea != eec:
-            sdi[sdn][list(iter(sdi[sdn]))[0]] = round(eer * sin(radians(eed + (eeg * (eec)))), 12)
-            sdi[sdn][list(iter(sdi[sdn]))[-1]] = round(eer * cos(radians(eed + (eeg * (eec)))), 12)
+            sdi[sdn][list(iter(sdi[sdn]))[0]] = round(1 / ter * (eer * sin(radians(eed + (eeg * (eec))))), 12)
+            sdi[sdn][list(iter(sdi[sdn]))[-1]] = round(1 / ter * (eer * cos(radians(eed + (eeg * (eec))))), 12)
+
             eec += 1
 
     return sdi
 
 
 if __name__ == '__main__':
-    l = {'odn_00': {'x': None, 'y': None}, 'odn_01': {'x': None, 'y': None}, 'odn_02': {'x': None, 'y': None}, 'odn_03': {'x': None, 'y': None}, 'odn_04': {'x': None, 'y': None}, 'odn_05': {'x': None, 'y': None}}
+    l = {'odn_00': {'x': None, 'y': None}, 'odn_01': {'x': None, 'y': None}, 'odn_02': {'x': None, 'y': None},
+         'odn_03': {'x': None, 'y': None}, 'odn_04': {'x': None, 'y': None}, 'odn_05': {'x': None, 'y': None}}
 
     print(ppd(l))
-
-
-# {'odn_00': {'x': 0.0, 'y': 500.0}, 'odn_01': {'x': 475.528258147577, 'y': 154.508497187474}, 'odn_02': {'x': 293.892626146237, 'y': -404.508497187474}, 'odn_03': {'x': -293.892626146237, 'y': -404.508497187474}, 'odn_04': {'x': -475.528258147577, 'y': 154.508497187474}, 'odn_05': {'x': 0.0, 'y': -72.663}}
-#

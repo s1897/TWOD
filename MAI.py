@@ -9,34 +9,45 @@
 #
 # irc = initialize receiver control
 # rir = raw imput receiver
+#
+# rca = receiver cannal amount
 # cld = construct psition directory
 # ccd = construct cannal directory
-# rca = receiver cannal amount
 #
+# poa = pwm output amount
+# cpd = construct pwm directory
 #
 
-# import of required directories
+# import of RIM directories
+from RIM.RRD.cld import cld
+from RIM.RRD.ccd import ccd
+
 from RIM.irc import irc
 from RIM.rir import rir
 
-# import of required directory
-from RIM.RRD.cld import cld
-from RIM.RRD.ccd import ccd
-from time import sleep
+# import of PWM directory
+
+from PWM.RPD.cdd import cdd
+from PWM.RPD.cpd import cpd
+
+from PWM.ppd import ppd
+from PWM.pcd import pcd
 
 
 rca = 8
+poa = 6
 
-ccd = ccd(rca)
 cld = cld(rca)
+ccd = ccd(rca)
+
+cdd = cdd(poa)
+cpd = cpd(poa)
 
 
 cld = irc(cld)
+ppd = ppd(cdd)
 
-
-print(cld)
-sleep(5)
 while True:
 
     ccd = rir(ccd, cld)
-    print(ccd)
+    print(pcd(ccd, ppd, cpd))
