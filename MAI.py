@@ -49,5 +49,5 @@ ppd = ppd(cdd)
 
 while True:
 
-    rir = rir(ccd, irc)
-    print(pcd(rir, ppd, cpd))
+    n = rir(ccd, irc)
+    print(pcd(n, ppd, cpd))
