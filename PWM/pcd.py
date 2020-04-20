@@ -7,43 +7,68 @@
 
 # pcd = pwm control distribution
 #
-# cdd = construct distance directory
-# cpn = construct distance name
+# rir = raw imput receiver
+# ppd = pwm psition distribution
 #
 # cpd = construct pwm directory
 # cpn = construct pwm name
 #
-# rci = raw control imput
-#
 # gdk = get distance key
 # grk = get receiver key
-from math import sqrt
+#
+
+#
+# thr = thrust
+# rot = rotate
+#
+# ypr  = y position of receiver
+# xpr  = x position of receiver
+#
+# ype  = y position of engine
+# xpe  = x position of engine
+#
+#
 
 
-def pcd(rci, cdd, cpd):
+def pcd(rir, ppd, cpd):
 
-    gdk = list(iter(cdd))[0].split("_")[0]
-    grk = list(iter(rci))[0].split("_")[0]
+    grk = list(iter(rir))[0].split("_")[0]
+    gdk = list(iter(ppd))[0].split("_")[0]
 
-    t = {"y": rci["rcn_02"], "x": rci["rcn_03"]}
+    for rcn in rir:
+        if rcn == grk + "_00":
+            thr = rir[grk + "_00"]
+
+        elif rcn == grk + "_01":
+            rot = rir[grk + "_01"]
+
+        elif rcn == grk + "_02":
+            ypr = rir[grk + "_02"]
+
+        elif rcn == grk + "_03":
+            xpr = rir[grk + "_03"]
+        else:
+            break
 
     for cpn in cpd:
+        ype = ppd[gdk + "_" + cpn.split("_")[-1]]["y"]
+        xpe = ppd[gdk + "_" + cpn.split("_")[-1]]["x"]
 
-        h = cdd[gdk + "_" + cpn.split("_")[-1]]
-        cpd[cpn] = round(((h["y"] - t["y"] * (1 - (t["x"]**2 / 2))**0.5)**2 + (h["x"] - t["x"] * (1 - (t["y"]**2 / 2))**0.5)**2)**0.5 * 0.1, 12)
+        ypr *= (1 - (xpr**2 / 2))**0.5
+        xpr *= (1 - (ypr**2 / 2))**0.5
+
+        cpd[cpn] = round(((ype - ypr)**2 + (xpe - xpr)**2)**0.5 * thr, 12)
 
     return cpd
 
 
 if __name__ == '__main__':
 
-    cdd = {'odn_00': {'x': 0.0, 'y': 1.0}, 'odn_01': {'x': 0.951056516295, 'y': 0.309016994375}, 'odn_02': {'x': 0.587785252292, 'y': -0.809016994375},
+    ppd = {'odn_00': {'x': 0.0, 'y': 1.0}, 'odn_01': {'x': 0.951056516295, 'y': 0.309016994375}, 'odn_02': {'x': 0.587785252292, 'y': -0.809016994375},
            'odn_03': {'x': -0.587785252292, 'y': -0.809016994375}, 'odn_04': {'x': -0.951056516295, 'y': 0.309016994375}, 'odn_05': {'x': 0.0, 'y': -0.145326}}
 
-    rci = {'rcn_00': None, 'rcn_01': None, 'rcn_02': 0, 'rcn_03': 0, 'rcn_04': None, 'rcn_05': None, 'rcn_06': None, 'rcn_07': None}
+    rir = {'rcn_00': 1, 'rcn_01': 2, 'rcn_02': 0, 'rcn_03': 0, 'rcn_04': None, 'rcn_05': None, 'rcn_06': None, 'rcn_07': None}
 
     cpd = {'opn_00': None, 'opn_01': None, 'opn_02': None, 'opn_03': None, 'opn_04': None, 'opn_05': None}
 
-    print(pcd(rci, cdd, cpd))
-# print(100 * ((0.0009419325139 - 0.0008182609046) * 0.006283185307) / ((0.0009512986886 - 0.0008182609046) * 0.006283185307))
-# 92.9597634458493
+    print(pcd(rir, ppd, cpd))

@@ -44,10 +44,10 @@ cdd = cdd(poa)
 cpd = cpd(poa)
 
 
-cld = irc(cld)
+irc = irc(cld)
 ppd = ppd(cdd)
 
 while True:
 
-    ccd = rir(ccd, cld)
-    print(pcd(ccd, ppd, cpd))
+    rir = rir(ccd, irc)
+    print(pcd(rir, ppd, cpd))
