@@ -29,6 +29,7 @@ import time
 import array
 import struct
 
+
 class LSM9DS1:
 
     __DEVICE_ACC_GYRO = 3
@@ -40,7 +41,7 @@ class LSM9DS1:
     # who am I values
     __WHO_AM_I_ACC_GYRO = 0x68
     __WHO_AM_I_MAG = 0x3D
-    
+
     # Accelerometer and Gyroscope registers
     __LSM9DS1XG_ACT_THS = 0x04
     __LSM9DS1XG_ACT_DUR = 0x05
@@ -52,7 +53,7 @@ class LSM9DS1:
     __LSM9DS1XG_REFERENCE_G = 0x0B
     __LSM9DS1XG_INT1_CTRL = 0x0C
     __LSM9DS1XG_INT2_CTRL = 0x0D
-    __LSM9DS1XG_WHO_AM_I = 0x0F # should return = 0x68
+    __LSM9DS1XG_WHO_AM_I = 0x0F  # should return = 0x68
     __LSM9DS1XG_CTRL_REG1_G = 0x10
     __LSM9DS1XG_CTRL_REG2_G = 0x11
     __LSM9DS1XG_CTRL_REG3_G = 0x12
@@ -91,7 +92,7 @@ class LSM9DS1:
     __LSM9DS1XG_INT_GEN_THS_ZH_G = 0x35
     __LSM9DS1XG_INT_GEN_THS_ZL_G = 0x36
     __LSM9DS1XG_INT_GEN_DUR_G = 0x37
-    
+
     # Magnetometer registers
     __LSM9DS1M_OFFSET_X_REG_L_M = 0x05
     __LSM9DS1M_OFFSET_X_REG_H_M = 0x06
@@ -99,7 +100,7 @@ class LSM9DS1:
     __LSM9DS1M_OFFSET_Y_REG_H_M = 0x08
     __LSM9DS1M_OFFSET_Z_REG_L_M = 0x09
     __LSM9DS1M_OFFSET_Z_REG_H_M = 0x0A
-    __LSM9DS1M_WHO_AM_I = 0x0F # should return = 0x3D
+    __LSM9DS1M_WHO_AM_I = 0x0F  # should return = 0x3D
     __LSM9DS1M_CTRL_REG1_M = 0x20
     __LSM9DS1M_CTRL_REG2_M = 0x21
     __LSM9DS1M_CTRL_REG3_M = 0x22
@@ -116,7 +117,7 @@ class LSM9DS1:
     __LSM9DS1M_INT_SRC_M = 0x31
     __LSM9DS1M_INT_THS_L_M = 0x32
     __LSM9DS1M_INT_THS_H_M = 0x33
-    
+
     # Configuration bits Accelerometer and Gyroscope
     __BITS_XEN_G = 0x08
     __BITS_YEN_G = 0x10
@@ -145,7 +146,7 @@ class LSM9DS1:
     __BITS_FS_XL_4G = 0x10
     __BITS_FS_XL_8G = 0x18
     __BITS_FS_XL_16G = 0x08
-    
+
     # Configuration bits Magnetometer
     __BITS_TEMP_COMP = 0x80
     __BITS_OM_LOW = 0x00
@@ -176,7 +177,7 @@ class LSM9DS1:
     __READ_FLAG = 0x80
     __MULTIPLE_READ = 0x40
 
-    def __init__(self, spi_bus_number = 0):
+    def __init__(self, spi_bus_number=0):
         self.bus = spidev.SpiDev()
         self.spi_bus_number = spi_bus_number
         self.gyro_scale = None
@@ -193,7 +194,7 @@ class LSM9DS1:
 
     def testConnection(self):
         responseXG = self.readReg(self.__DEVICE_ACC_GYRO, self.__LSM9DS1XG_WHO_AM_I)
-        responseM =  self.readReg(self.__DEVICE_MAGNETOMETER, self.__LSM9DS1M_WHO_AM_I)
+        responseM = self.readReg(self.__DEVICE_MAGNETOMETER, self.__LSM9DS1M_WHO_AM_I)
         if (responseXG == self.__WHO_AM_I_ACC_GYRO and responseM == self.__WHO_AM_I_MAG):
             return True
         return False
@@ -217,7 +218,7 @@ class LSM9DS1:
         tx = [0] * (length + 1)
 
         tx[0] = reg_address | self.__READ_FLAG
-        if dev_number==self.__DEVICE_MAGNETOMETER:
+        if dev_number == self.__DEVICE_MAGNETOMETER:
             tx[0] |= self.__MULTIPLE_READ
 
         rx = self.bus.xfer2(tx)
@@ -245,17 +246,16 @@ class LSM9DS1:
         # continuous conversion mode
         self.writeReg(self.__DEVICE_MAGNETOMETER, self.__LSM9DS1M_CTRL_REG3_M, self.__BITS_MD_CONTINUOUS)
         self.writeReg(self.__DEVICE_MAGNETOMETER, self.__LSM9DS1M_CTRL_REG4_M, self.__BITS_OMZ_HIGH)
-        self.writeReg(self.__DEVICE_MAGNETOMETER, self.__LSM9DS1M_CTRL_REG5_M, 0x00 )
+        self.writeReg(self.__DEVICE_MAGNETOMETER, self.__LSM9DS1M_CTRL_REG5_M, 0x00)
         time.sleep(0.1)
 
         self.set_gyro_scale(self.__BITS_FS_G_2000DPS)
         self.set_acc_scale(self.__BITS_FS_XL_16G)
         self.set_mag_scale(self.__BITS_FS_M_16Gs)
 
-
     def set_gyro_scale(self, scale):
         reg = self.__BITS_FS_G_MASK & self.readReg(self.__DEVICE_ACC_GYRO, self.__LSM9DS1XG_CTRL_REG1_G)
-        self.writeReg(self.__DEVICE_ACC_GYRO, self.__LSM9DS1XG_CTRL_REG1_G,reg | scale)
+        self.writeReg(self.__DEVICE_ACC_GYRO, self.__LSM9DS1XG_CTRL_REG1_G, reg | scale)
         if (scale == self.__BITS_FS_G_245DPS):
             self.gyro_scale = 0.00875
         if (scale == self.__BITS_FS_G_500DPS):
@@ -290,32 +290,32 @@ class LSM9DS1:
     def read_acc(self):
         # Read accelerometer
         response = self.readRegs(self.__DEVICE_ACC_GYRO, self.__LSM9DS1XG_OUT_X_L_XL, 6)
-        for i in xrange(3):
-            self.accelerometer_data[i] = self.G_SI * (self.byte_to_float_le(response[2*i:2*i+2]) * self.acc_scale)
+        for i in range(3):
+            self.accelerometer_data[i] = self.G_SI * (self.byte_to_float_le(response[2 * i:2 * i + 2]) * self.acc_scale)
 
         self.accelerometer_data = [-self.accelerometer_data[1], -self.accelerometer_data[0], self.accelerometer_data[2]]
 
     def read_gyro(self):
         # Read gyroscope
         response = self.readRegs(self.__DEVICE_ACC_GYRO, self.__LSM9DS1XG_OUT_X_L_G, 6)
-        for i in xrange(3):
-            self.gyroscope_data[i] = (self.PI / 180.0) * (self.byte_to_float_le(response[2*i:2*i+2]) * self.gyro_scale) 
+        for i in range(3):
+            self.gyroscope_data[i] = (self.PI / 180.0) * (self.byte_to_float_le(response[2 * i:2 * i + 2]) * self.gyro_scale)
 
         self.gyroscope_data = [-self.gyroscope_data[1], -self.gyroscope_data[0], self.gyroscope_data[2]]
 
     def read_mag(self):
         # Read magnetometer
         response = self.readRegs(self.__DEVICE_MAGNETOMETER, self.__LSM9DS1M_OUT_X_L_M, 6)
-        for i in xrange(3):
-            self.magnetometer_data[i] = 100.0 * (self.byte_to_float_le(response[2*i:2*i+2]) * self.mag_scale)
+        for i in range(3):
+            self.magnetometer_data[i] = 100.0 * (self.byte_to_float_le(response[2 * i:2 * i + 2]) * self.mag_scale)
 
-        self.magnetometer_data[1] *=-1
-        self.magnetometer_data[2] *=-1
+        self.magnetometer_data[1] *= -1
+        self.magnetometer_data[2] *= -1
 
     def read_temp(self):
         # Read temperature
         response = self.readRegs(self.__DEVICE_ACC_GYRO, self.__LSM9DS1XG_OUT_TEMP_L, 2)
-        self.temperature = self.byte_to_float_le(response) / 256.0 + 25.0 
+        self.temperature = self.byte_to_float_le(response) / 256.0 + 25.0
 
     def read_all(self):
         # Read temperature
@@ -324,18 +324,18 @@ class LSM9DS1:
 
         # Read accelerometer
         response = self.readRegs(self.__DEVICE_ACC_GYRO, self.__LSM9DS1XG_OUT_X_L_XL, 6)
-        for i in xrange(3):
-            self.accelerometer_data[i] = self.G_SI * (self.byte_to_float_le(response[2*i:2*i+2]) * self.acc_scale)
+        for i in range(3):
+            self.accelerometer_data[i] = self.G_SI * (self.byte_to_float_le(response[2 * i:2 * i + 2]) * self.acc_scale)
 
         # Read gyroscope
         response = self.readRegs(self.__DEVICE_ACC_GYRO, self.__LSM9DS1XG_OUT_X_L_G, 6)
-        for i in xrange(3):
-            self.gyroscope_data[i] = (self.PI / 180.0) * (self.byte_to_float_le(response[2*i:2*i+2]) * self.gyro_scale) 
+        for i in range(3):
+            self.gyroscope_data[i] = (self.PI / 180.0) * (self.byte_to_float_le(response[2 * i:2 * i + 2]) * self.gyro_scale)
 
         # Read magnetometer
         response = self.readRegs(self.__DEVICE_MAGNETOMETER, self.__LSM9DS1M_OUT_X_L_M, 6)
-        for i in xrange(3):
-            self.magnetometer_data[i] = 100.0 * (self.byte_to_float_le(response[2*i:2*i+2]) * self.mag_scale)
+        for i in range(3):
+            self.magnetometer_data[i] = 100.0 * (self.byte_to_float_le(response[2 * i:2 * i + 2]) * self.mag_scale)
 
         # Change rotation of LSM9DS1 like in MPU-9250
         self.rotate()
@@ -367,11 +367,10 @@ class LSM9DS1:
         signed_16_bit_int, = struct.unpack("<h", byte_array)
         return float(signed_16_bit_int)
 
-
     def rotate(self):
         self.accelerometer_data = [-self.accelerometer_data[1], -self.accelerometer_data[0], self.accelerometer_data[2]]
 
         self.gyroscope_data = [-self.gyroscope_data[1], -self.gyroscope_data[0], self.gyroscope_data[2]]
 
-        self.magnetometer_data[1] *=-1
-        self.magnetometer_data[2] *=-1
+        self.magnetometer_data[1] *= -1
+        self.magnetometer_data[2] *= -1
