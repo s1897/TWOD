@@ -27,8 +27,6 @@
 # ype  = y position of engine
 # xpe  = x position of engine
 #
-#
-from RIM.rie import rie
 
 
 def pcd(rir, ppd, cpd):
@@ -38,7 +36,7 @@ def pcd(rir, ppd, cpd):
 
     for rcn in rir:
         if rcn == grk + "_00":
-            thr = rie(rir[grk + "_00"], elo=0, eho=1, lsr=-1, hsr=1)
+            thr = rir[grk + "_00"]
 
         elif rcn == grk + "_01":
             rot = rir[grk + "_01"]
@@ -58,7 +56,7 @@ def pcd(rir, ppd, cpd):
         ypr *= (1 - (xpr**2 / 2))**0.5
         xpr *= (1 - (ypr**2 / 2))**0.5
 
-        cpd[cpn] = round(rie(thr + (((ype - ypr)**2 + (xpe - xpr)**2)**0.5) * 0.1, elo=0, eho=1, lsr=0.1, hsr=1.2), 12)
+        cpd[cpn] = round(((ype - ypr)**2 + (xpe - xpr)**2)**0.5, 12)
 
     return cpd
 
