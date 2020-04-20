@@ -58,7 +58,7 @@ def pcd(rir, ppd, cpd):
         ypr *= (1 - (xpr**2 / 2))**0.5
         xpr *= (1 - (ypr**2 / 2))**0.5
 
-        cpd[cpn] = round(rie(thr + (((ype - ypr)**2 + (xpe - xpr)**2)**0.5) * 0.1, elo=0, eho=1, lsr=0.1, hsr=1.2), 12)
+        cpd[cpn] = round(rie(thr + (((ype - ypr)**2 + (xpe - xpr)**2)**0.5) * 0.1, elo=0, eho=1, lsr=0, hsr=1.2), 12)
 
     return cpd
 
