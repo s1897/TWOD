@@ -38,7 +38,7 @@ def pcd(rir, ppd, cpd):
 
     for rcn in rir:
         if rcn == grk + "_00":
-            thr = rie(rir[grk + "_00"] elo=0, eho=1, lsr=-1, hsr=1)
+            thr = rie(rir[grk + "_00"], elo=0, eho=1, lsr=-1, hsr=1)
 
         elif rcn == grk + "_01":
             rot = rir[grk + "_01"]
