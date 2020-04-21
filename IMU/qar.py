@@ -10,8 +10,8 @@
 from math import asin, radians, degrees
 
 x = 0
-y = 0
-z = 9
+y = 9
+z = 0
 r = 1
 
 a = (x * x + y * y + z * z)**0.5

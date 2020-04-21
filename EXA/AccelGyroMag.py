@@ -123,7 +123,7 @@ while True:
             za = z
             da = d
 
-    print(("Acc:" + " {:+6f} {:+6f} {:+6f} {:+6f}").format(degrees(xa), degrees(ya), degrees(za), degrees(da)))
+    print(("Acc:" + " {:+6f} {:+6f} {:+6f} {:+6f} " + "Norm :" + " {:+6f} {:+6f} {:+6f} ").format(degrees(xa), degrees(ya), degrees(za), degrees(da), x, y, z))
     # a = (x * x + y * y + z * z)**0.5
     #
     # print(a)
