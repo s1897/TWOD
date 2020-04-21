@@ -33,7 +33,7 @@ import sys
 import navio.mpu9250
 import navio.lsm9ds1
 import navio.util
-from math import asin
+from math import asin, degrees
 
 navio.util.check_apm()
 

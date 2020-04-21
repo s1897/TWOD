@@ -9,9 +9,9 @@
 # qar Quaternions and Rotations
 from math import asin, radians, degrees
 
-x = -2**0.5 / 2
-y = -2**0.5 / 2
-z = -1
+x = 0
+y = 0
+z = 9
 r = 1
 
 a = (x * x + y * y + z * z)**0.5
@@ -42,6 +42,6 @@ else:
 
 print(degrees(xa), degrees(ya), degrees(za), degrees(da))
 
-a = (x * x + y * y + z * z)**0.5
-
-print(a)
+# a = (x * x + y * y + z * z)**0.5
+#
+# print(a)
