@@ -82,7 +82,7 @@ while True:
 
     # time.sleep(0.1)
 
-    x, y, z = imu.getMotion9()
+    m9a, m9g, m9m = imu.getMotion9()
 
     # print(("Acc:" + " {:+6f} {:+6f} {:+6f} " + "Gyr:" + " {:+6f} {:+6f} {:+6f} " + "Mag:" + " {:+6f} {:+6f} {:+6f}").format(m9a[0], m9a[1], m9a[2], m9g[0], m9g[1], m9g[2], m9m[0], m9m[1], m9m[2]))
 
@@ -91,6 +91,9 @@ while True:
     # print("Mag:", "{:+7.3f}".format(m9m[0]), "{:+7.3f}".format(m9m[1]), "{:+7.3f}".format(m9m[2]))
 
     # time.sleep(0.5)
+    x = m9a[0]
+    y = m9a[1]
+    z = m9a[2]
 
     a = (x * x + y * y + z * z)**0.5
 
