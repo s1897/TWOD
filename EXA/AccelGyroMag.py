@@ -106,7 +106,7 @@ while True:
 
     d = (x * x + y * y)**0.5
 
-    print(x, y, z, d)
+    # print(x, y, z, d)
 
     if not d == 0:
         xa = asin(x / d)
@@ -123,7 +123,7 @@ while True:
         za = z
         da = d
 
-        print(("Acc:" + " {:+6f} {:+6f} {:+6f} {:+6f}").format(degrees(xa), degrees(ya), degrees(za), degrees(da)))
+    print(("Acc:" + " {:+6f} {:+6f} {:+6f} {:+6f}").format(degrees(xa), degrees(ya), degrees(za), degrees(da)))
     # a = (x * x + y * y + z * z)**0.5
-        #
+    #
     # print(a)

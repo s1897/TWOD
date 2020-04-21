@@ -23,7 +23,7 @@ if not a == 0:
 
 d = (x * x + y * y)**0.5
 
-print(x, y, z, d)
+# print(x, y, z, d)
 
 if not d == 0:
     xa = asin(x / d)
