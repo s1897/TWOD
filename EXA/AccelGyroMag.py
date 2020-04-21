@@ -92,11 +92,10 @@ while True:
     # print("Mag:", "{:+7.3f}".format(m9m[0]), "{:+7.3f}".format(m9m[1]), "{:+7.3f}".format(m9m[2]))
 
     # time.sleep(0.5)
-    x = round(m9a[0] - 0.0, 1)
-    y = round(m9a[1] - 0.0, 1)
+    x = round(m9a[0] - 0.4, 1)
+    y = round(m9a[1] - 0.2, 1)
     z = round(m9a[2] - 0.0, 1)
     r = 1
-    print(x, y, z)
 
     a = (x * x + y * y + z * z)**0.5
 
