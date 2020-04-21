@@ -9,9 +9,9 @@
 # qar Quaternions and Rotations
 from math import asin, radians, degrees
 
-x = 0.1
-y = 0.1
-z = 1
+x = 0.01
+y = 0.01
+z = 1000
 r = 1
 
 a = (x * x + y * y + z * z)**0.5
@@ -29,16 +29,16 @@ if not d == 0:
     xa = asin(x / d)
     ya = asin(y / d)
 else:
-    xa = x
-    ya = y
+    xa = radians(45)
+    ya = radians(45)
 
 if not r == 0:
     za = asin(z / r)
     da = asin(d / r)
 
 else:
-    za = z
-    da = d
+    za = radians(45)
+    da = radians(45)
 
 print(degrees(xa), degrees(ya), degrees(za), degrees(da))
 
