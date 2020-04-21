@@ -96,7 +96,7 @@ while True:
     y = round(m9a[1] - 0.0, 1)
     z = round(m9a[2] - 0.0, 1)
     r = 1
-        print(x, y, z)
+    print(x, y, z)
 
     a = (x * x + y * y + z * z)**0.5
 
