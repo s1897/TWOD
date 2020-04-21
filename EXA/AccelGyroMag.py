@@ -82,12 +82,43 @@ while True:
 
     # time.sleep(0.1)
 
-    m9a, m9g, m9m = imu.getMotion9()
+    x, y, z = imu.getMotion9()
 
-    print(("Acc:" + " {:+6f} {:+6f} {:+6f} " + "Gyr:" + " {:+6f} {:+6f} {:+6f} " + "Mag:" + " {:+6f} {:+6f} {:+6f}").format(m9a[0], m9a[1], m9a[2], m9g[0], m9g[1], m9g[2], m9m[0], m9m[1], m9m[2]))
+    # print(("Acc:" + " {:+6f} {:+6f} {:+6f} " + "Gyr:" + " {:+6f} {:+6f} {:+6f} " + "Mag:" + " {:+6f} {:+6f} {:+6f}").format(m9a[0], m9a[1], m9a[2], m9g[0], m9g[1], m9g[2], m9m[0], m9m[1], m9m[2]))
 
     # print("Acc:", "{:+7.3f}".format(m9a[0]), "{:+7.3f}".format(m9a[1]), "{:+7.3f}".format(m9a[2]))
     # print("Gyr:", "{:+8.3f}".format(m9g[0]), "{:+8.3f}".format(m9g[1]), "{:+8.3f}".format(m9g[2]))
     # print("Mag:", "{:+7.3f}".format(m9m[0]), "{:+7.3f}".format(m9m[1]), "{:+7.3f}".format(m9m[2]))
 
     # time.sleep(0.5)
+
+    a = (x * x + y * y + z * z)**0.5
+
+    if not a == 0:
+        x /= a
+        y /= a
+        z /= a
+
+    d = (x * x + y * y)**0.5
+
+    print(x, y, z, d)
+
+    if not d == 0:
+        xa = asin(x / d)
+        ya = asin(y / d)
+    else:
+        xa = x
+        ya = y
+
+    if not r == 0:
+        za = asin(z / r)
+        da = asin(d / r)
+
+    else:
+        za = z
+        da = d
+
+        print(("Acc:" + " {:+6f} {:+6f} {:+6f} {:+6f}").format(degrees(xa), degrees(ya), degrees(za), degrees(da)))
+    # a = (x * x + y * y + z * z)**0.5
+        #
+    # print(a)
