@@ -95,6 +95,7 @@ while True:
     x = m9a[0]
     y = m9a[1]
     z = m9a[2]
+    r = 1
 
     a = (x * x + y * y + z * z)**0.5
 
