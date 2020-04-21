@@ -106,22 +106,22 @@ while True:
 
     d = (x * x + y * y)**0.5
 
-    # print(x, y, z, d)
+    if not d > 1:
 
-    if not d == 0:
-        xa = asin(x / d)
-        ya = asin(y / d)
-    else:
-        xa = x
-        ya = y
+        if not d == 0:
+            xa = asin(x / d)
+            ya = asin(y / d)
+        else:
+            xa = x
+            ya = y
 
-    if not r == 0:
-        za = asin(z / r)
-        da = asin(d / r)
+        if not r == 0:
+            za = asin(z / r)
+            da = asin(d / r)
 
-    else:
-        za = z
-        da = d
+        else:
+            za = z
+            da = d
 
     print(("Acc:" + " {:+6f} {:+6f} {:+6f} {:+6f}").format(degrees(xa), degrees(ya), degrees(za), degrees(da)))
     # a = (x * x + y * y + z * z)**0.5
