@@ -9,9 +9,9 @@
 # qar Quaternions and Rotations
 from math import asin, radians, degrees
 
-x = 0
-y = 9
-z = 0
+x = 0.1
+y = 0.1
+z = 1
 r = 1
 
 a = (x * x + y * y + z * z)**0.5
