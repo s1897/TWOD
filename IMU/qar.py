@@ -31,7 +31,7 @@
 # nsv = normalizd sensor vectord
 
 # import of required directories
-from IMU.CSD import rsd
+from IMU.CSD.rsd import rsd
 
 
 def qar():
