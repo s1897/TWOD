@@ -57,7 +57,28 @@ def qar():
     # sdd now normalizd
     for ml in sdd:
         if sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["x"] > 0:
-            csn.append("fhk")
+            csn.append("fhk")   # fhk = +x+y+z cube
+
+        elif sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["x"] < 0:
+            csn.append("fhl")   # fhl = +x+y-z cube
+
+        elif sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["x"] > 0:
+            csn.append("fjk")   # fjk = +x-y+z cube
+
+        elif sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["x"] < 0:
+            csn.append("fjl")   # fjl = +x-y-z cube
+
+        elif sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["x"] > 0:
+            csn.append("ghk")   # ghk = -x+y+z cube
+
+        elif sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["x"] < 0:
+            csn.append("ghl")   # ghl = -x+y-z cube
+
+        elif sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["x"] > 0:
+            csn.append("gjk")   # gjk = -x-y+z cube
+
+        elif sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["x"] < 0:
+            csn.append("gjl")   # gjl = -x-y-z cube
 
     print(csn)
 
