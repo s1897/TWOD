@@ -113,6 +113,36 @@
 # for i in q:
 #     q[i] /= qn**0.5
 # print(q)
-
-t = ("1", "2", "3")
-print(t[])
+#
+# t = ("1", "2", "3")
+# print(t[])
+#     sod = {"mpu9250": {"acc": {"x": 0, "y": 0, "z": 0},
+#                        "gyr": {"x": 0, "y": 0, "z": 0},
+#                        "mag": {"x": 0, "y": 0, "z": 0}
+#                        },
+#            "lsm9ds1": {"acc": {"x": 0, "y": 0, "z": 0},
+#                        "gyr": {"x": 0, "y": 0, "z": 0},
+#                        "mag": {"x": 0, "y": 0, "z": 0}
+#                        }}
+#
+#     tod = {"mpu9250": {"acc": {"x": 0, "y": 0, "z": },
+#                        "gyr": {"x": 0, "y": 0, "z": 0},
+#                        "mag": {"x": 0, "y": 0, "z": 0}
+#                        },
+#            "lsm9ds1": {"acc": {"x": 0, "y": 0, "z": },
+#                        "gyr": {"x": 0, "y": 0, "z": 0},
+#                        "mag": {"x": 0, "y": 0, "z": 0}
+#                        }}
+#
+#     for i in range(sci):
+#
+#         ssd = rsd()
+#
+#         for ml in sod:
+#             for agm in sod[ml]:
+#                 for xyz in sod[ml][agm]:
+#                     sod[ml][agm][xyz] += (ssd[ml][agm][xyz] / sci) - tod[ml][agm][xyz] / sci
+#
+#     return(sod)
+# from IMU.CSD.rsd import rsd
+#
