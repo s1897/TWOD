@@ -51,5 +51,5 @@ mpu.initialize()
 gld = lms.getMotion9()
 gmd = mpu.getMotion9()
 
-print(type(gld))
+print(gld[0][0], gld[0][1], gld[0][1])
 # print(("Acc:" + " {:+6f} {:+6f} {:+6f} " + "Gyr:" + " {:+6f} {:+6f} {:+6f} " + "Mag:" + " {:+6f} {:+6f} {:+6f}").format(m9a[0], m9a[1], m9a[2], m9g[0], m9g[1], m9g[2], m9m[0], m9m[1], m9m[2]))

@@ -64,52 +64,55 @@
 # print(fa * la == f * l)
 
 # print("Acc:" + "{:+10f}{:+10f}1".format(1.002, 2.0400395998))
-from math import asin, radians, degrees
-
-x = 1
-y = 1
-z = 0
-r = 1
-
-a = (x * x + y * y + z * z)**0.5
-
-if not a == 0:
-    x /= a
-    y /= a
-    z /= a
-
-d = (x * x + y * y)**0.5
-
-print(x, y, z, d)
-
-if not d == 0:
-    xa = asin(x / d)
-    ya = asin(y / d)
-else:
-    xa = radians(45)
-    ya = radians(45)
-
-if not r == 0:
-    za = asin(z / r)
-    da = asin(d / r)
-
-else:
-    za = radians(45)
-    da = radians(45)
-
-print((xa), (ya), (za), (da))
-0
+# from math import asin, radians, degrees
+#
+# x = 1
+# y = 1
+# z = 0
+# r = 1
+#
 # a = (x * x + y * y + z * z)**0.5
 #
-# print(a)
+# if not a == 0:
+#     x /= a
+#     y /= a
+#     z /= a
+#
+# d = (x * x + y * y)**0.5
+#
+# print(x, y, z, d)
+#
+# if not d == 0:
+#     xa = asin(x / d)
+#     ya = asin(y / d)
+# else:
+#     xa = radians(45)
+#     ya = radians(45)
+#
+# if not r == 0:
+#     za = asin(z / r)
+#     da = asin(d / r)
+#
+# else:
+#     za = radians(45)
+#     da = radians(45)
+#
+# print((xa), (ya), (za), (da))
+# 0
+# # a = (x * x + y * y + z * z)**0.5
+# #
+# # print(a)
+#
+# from math import sin, acos, radians, degrees
+#
+#
+# q = {"r": 1, "x": 0, "y": 0, "z": 0}
+# qn = 0
+# for i in q:
+#     qn += q[i] * q[i]
+# for i in q:
+#     q[i] /= qn**0.5
+# print(q)
 
-from math import sin, acos, radians, degrees
-
-
-q = {"r": 1, "x": 0, "y": 0, "z": 0}
-qn = 0
-for i in q:
-    qn += q[i] * q[i]
-for i in q:
-    q[i] /= qn**0.5
-print(q)
+t = ("1", "2", "3")
+print(t[])
