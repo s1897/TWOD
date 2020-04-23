@@ -18,36 +18,42 @@
 # cpd = construct pwm directory
 #
 
-# import of RIM directories
-from RIM.RRD.cld import cld
-from RIM.RRD.ccd import ccd
+# # import of RIM directories
+# from RIM.RRD.cld import cld
+# from RIM.RRD.ccd import ccd
+#
+# from RIM.irc import irc
+# from RIM.rir import rir
+#
+# # import of PWM directory
+#
+# from PWM.RPD.cdd import cdd
+# from PWM.RPD.cpd import cpd
+#
+# from PWM.ppd import ppd
+# from PWM.pcd import pcd
+#
+#
+# rca = 8
+# poa = 6
+#
+# cld = cld(rca)
+# ccd = ccd(rca)
+#
+# cdd = cdd(poa)
+# cpd = cpd(poa)
+#
+#
+# irc = irc(cld)
+# ppd = ppd(cdd)
+#
+# while True:
+#
+#     n = rir(ccd, irc)
+#     print(pcd(n, ppd, cpd))
 
-from RIM.irc import irc
-from RIM.rir import rir
-
-# import of PWM directory
-
-from PWM.RPD.cdd import cdd
-from PWM.RPD.cpd import cpd
-
-from PWM.ppd import ppd
-from PWM.pcd import pcd
-
-
-rca = 8
-poa = 6
-
-cld = cld(rca)
-ccd = ccd(rca)
-
-cdd = cdd(poa)
-cpd = cpd(poa)
-
-
-irc = irc(cld)
-ppd = ppd(cdd)
+from IMU import qar
 
 while True:
 
-    n = rir(ccd, irc)
-    print(pcd(n, ppd, cpd))
+    print(qar())

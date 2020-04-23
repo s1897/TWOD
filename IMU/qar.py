@@ -31,9 +31,10 @@
 # nsv = normalizd sensor vectord
 
 # import of required directories
-from CSD import rsd
-from time import time
+from IMU.CSD import rsd
 
-while True:
+
+def qar():
 
     h = rsd()
+    return h
