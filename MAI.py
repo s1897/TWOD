@@ -59,4 +59,4 @@ sod = sod(1000)
 print(sod)
 
 while True:
-    qar(sod)
+    qar()
