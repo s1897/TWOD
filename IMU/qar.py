@@ -38,5 +38,21 @@ from IMU.CSD.rsd import rsd
 
 def qar():
 
+    nsv = 0
     sdd = rsd()
+
+    for ml in sdd:
+        for agm in sdd[ml]:
+            for xyz in sdd[ml][agm]:
+                nsv += sdd[ml][agm][xyz] * sdd[ml][agm][xyz]
+
+            nsv **= 0.5
+
+            for xyz in sdd[ml][agm]:
+                sdd[ml][agm][xyz] /= nsv
+
     print(sdd)
+
+
+if __name__ == '__main__':
+    pass

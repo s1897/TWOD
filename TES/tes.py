@@ -152,3 +152,9 @@
 #             for agm in rsd[ml]:
 #                 for xyz in rsd[ml][agm]:
 #                     rsd[ml][agm][xyz] -= sod[ml][agm][xyz]
+
+t = 2
+
+t **= 0.5
+
+print(t)
