@@ -31,20 +31,27 @@ lsm.initialize()
 mpu.initialize()
 
 
-def rsd():
+def rsd(sod=None):
     # read and write the data of the LSM9DS1 and MPU9250 sensor to a variable
     al, gl, ml = lsm.getMotion9()
     am, gm, mm = mpu.getMotion9()
 
-    return {"mpu9250": {"acc": {"x": al[0], "y": al[1], "z": al[2]},
-                        "gyr": {"x": gl[0], "y": gl[1], "z": gl[2]},
-                        "mag": {"x": ml[0], "y": ml[1], "z": ml[2]}
-                        },
-            "lsm9ds1": {"acc": {"x": am[0], "y": am[1], "z": am[2]},
-                        "gyr": {"x": gm[0], "y": gm[1], "z": gm[2]},
-                        "mag": {"x": mm[0], "y": mm[1], "z": mm[2]}
-                        }
-            }
+    rsd = {"mpu9250": {"acc": {"x": al[0], "y": al[1], "z": al[2]},
+                       "gyr": {"x": gl[0], "y": gl[1], "z": gl[2]},
+                       "mag": {"x": ml[0], "y": ml[1], "z": ml[2]}
+                       },
+           "lsm9ds1": {"acc": {"x": am[0], "y": am[1], "z": am[2]},
+                       "gyr": {"x": gm[0], "y": gm[1], "z": gm[2]},
+                       "mag": {"x": mm[0], "y": mm[1], "z": mm[2]}
+                       }}
+
+    if not sod == None:
+        for ml in rsd:
+            for agm in rsd[ml]:
+                for xyz in rsd[ml][agm]:
+                    rsd[ml][agm][xyz] -= sod[ml][agm][xyz]
+
+    return rsd
 
 
 if __name__ == '__main__':
