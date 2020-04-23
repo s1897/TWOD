@@ -32,8 +32,8 @@
 
 # import of required directories
 from CSD import rsd
-
+from time import time
 
 while True:
 
-    print(rsd)
+    print(rsd["mpu9250"], time())

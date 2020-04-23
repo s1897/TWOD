@@ -36,9 +36,14 @@ def rsd():
     al, gl, ml = lsm.getMotion9()
     am, gm, mm = mpu.getMotion9()
 
-    return {"mpu9250": {"acc": {"x": al[0], "y": al[1], "z": al[2]},
-                        "gyr": {"x": gl[0], "y": gl[1], "z": gl[2]},
-                        "mag": {"x": ml[0], "y": ml[1], "z": ml[2]}},
-            "lsm9ds1": {"acc": {"x": am[0], "y": am[1], "z": am[2]},
-                        "gyr": {"x": gm[0], "y": gm[1], "z": gm[2]},
-                        "mag": {"x": mm[0], "y": mm[1], "z": mm[2]}}}
+    d = {"mpu9250": {"acc": {"x": al[0], "y": al[1], "z": al[2]},
+                     "gyr": {"x": gl[0], "y": gl[1], "z": gl[2]},
+                     "mag": {"x": ml[0], "y": ml[1], "z": ml[2]}
+                     },
+         "lsm9ds1": {"acc": {"x": am[0], "y": am[1], "z": am[2]},
+                     "gyr": {"x": gm[0], "y": gm[1], "z": gm[2]},
+                     "mag": {"x": mm[0], "y": mm[1], "z": mm[2]}
+                     }
+         }
+
+    return d
