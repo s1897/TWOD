@@ -45,7 +45,7 @@ def sod(sci=100):
                 for xyz in sod[ml][agm]:
                     sod[ml][agm][xyz] += (ssd[ml][agm][xyz] / sci) - tod[ml][agm][xyz] / sci
 
-    print(sod)
+    return(sod)
 
 
 if __name__ == '__main__':
