@@ -56,5 +56,7 @@ from IMU.sod import sod
 
 sod = sod(1000)
 
+print(sod)
+
 while True:
     qar(sod)
