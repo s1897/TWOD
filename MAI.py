@@ -56,4 +56,4 @@ from IMU.qar import qar
 
 while True:
 
-    print(qar())
+    qar()
