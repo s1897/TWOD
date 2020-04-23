@@ -46,6 +46,7 @@ def rsd(sod=None):
                        }}
 
     if not sod == None:
+        print("a")
         for ml in rsd:
             for agm in rsd[ml]:
                 for xyz in rsd[ml][agm]:
