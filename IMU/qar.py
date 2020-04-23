@@ -36,4 +36,4 @@ from time import time
 
 while True:
 
-    print(rsd["mpu9250"], time())
+    print(rsd()["mpu9250"], time())
