@@ -6,42 +6,50 @@
 #  ██████  ██   ██ ██   ██
 #     ▀▀
 
-# qar Quaternions and Rotations
-from math import asin, radians, degrees
-
-x = 0.01
-y = 0.01
-z = 1000
-r = 1
-
-a = (x * x + y * y + z * z)**0.5
-
-if not a == 0:
-    x /= a
-    y /= a
-    z /= a
-
-d = (x * x + y * y)**0.5
-
-# print(x, y, z, d)
-
-if not d == 0:
-    xa = asin(x / d)
-    ya = asin(y / d)
-else:
-    xa = radians(45)
-    ya = radians(45)
-
-if not r == 0:
-    za = asin(z / r)
-    da = asin(d / r)
-
-else:
-    za = radians(45)
-    da = radians(45)
-
-print(degrees(xa), degrees(ya), degrees(za), degrees(da))
-
-# a = (x * x + y * y + z * z)**0.5
+# qar = quaternions and rotations
 #
-# print(a)
+# xap = x axis psoition
+# yap = y axis psoition
+# zap = y axis psoition
+
+# xyp = xy plane
+# xzp = xz plane
+# yzp = yz plane
+
+# | +x  | -x  | +y  | -y  | +z  | -z  |
+# |  f  |  g  |  h  |  j  |  k  |  l  |
+
+# fhk = +x+y+z cube
+# fhl = +x+y-z cube
+# fjk = +x-y+z cube
+# fjl = +x-y-z cube
+# ghk = -x+y+z cube
+# ghl = -x+y-z cube
+# gjk = -x-y+z cube
+# gjl = -x-y-z cube
+
+# cso = calculate sensor offset
+# nsv = normalizd sensor vectord
+
+# lms = LSM9DS1
+# mpu = MPU9250
+
+# import of required directories
+from NA2.lsm9ds1 import LSM9DS1
+from NA2.mpu9250 import MPU9250
+
+# set LSM9DS1 and MPU9250 sensor to a variable
+lms = LSM9DS1()
+mpu = MPU9250()
+
+# initialize the LSM9DS1 and MPU9250 sensor
+lms.initialize()
+mpu.initialize()
+
+# read and write the data of the LSM9DS1 and MPU9250 sensor to a variable
+
+gld = lms.getMotion9()
+gmd = mpu.getMotion9()
+
+print(type(gld))
+# print(("Acc:" + " {:+6f} {:+6f} {:+6f} " + "Gyr:" + " {:+6f} {:+6f} {:+6f} " + "Mag:" + " {:+6f} {:+6f} {:+6f}").format(m9a[0], m9a[1], m9a[2], m9g[0], m9g[1], m9g[2], m9m[0], m9m[1], m9m[2]))
