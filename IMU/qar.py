@@ -39,7 +39,7 @@ def qar():
 
     sdd = rsd()
 
-    print(("mpu9250: acc: {: +6f} {: +6f} {: +6f} gyr: {: +6f} {: +6f} {: +6f} mag: {: +6f} {: +6f} {: +6f}\n".format(
+    print(("mpu9250: acc: {:+6f} {:+6f} {:+6f} gyr: {:+6f} {:+6f} {:+6f} mag: {:+6f} {:+6f} {:+6f}\n".format(
         sdd["mpu9250"]["acc"]["x"], sdd["mpu9250"]["acc"]["y"], sdd["mpu9250"]["acc"]["z"],
         sdd["mpu9250"]["gyr"]["x"], sdd["mpu9250"]["gyr"]["x"], sdd["mpu9250"]["gyr"]["x"],
         sdd["mpu9250"]["mag"]["x"], sdd["mpu9250"]["mag"]["x"], sdd["mpu9250"]["mag"]["x"]) +
