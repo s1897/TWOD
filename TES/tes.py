@@ -146,3 +146,9 @@
 #     return(sod)
 # from IMU.CSD.rsd import rsd
 #
+# sod=None
+#     if not sod == None:
+#         for ml in rsd:
+#             for agm in rsd[ml]:
+#                 for xyz in rsd[ml][agm]:
+#                     rsd[ml][agm][xyz] -= sod[ml][agm][xyz]

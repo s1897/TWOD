@@ -31,7 +31,7 @@ lsm.initialize()
 mpu.initialize()
 
 
-def rsd(sod=None):
+def rsd():
     # read and write the data of the LSM9DS1 and MPU9250 sensor to a variable
     al, gl, ml = lsm.getMotion9()
     am, gm, mm = mpu.getMotion9()
@@ -44,12 +44,6 @@ def rsd(sod=None):
                        "gyr": {"x": gm[0], "y": gm[1], "z": gm[2]},
                        "mag": {"x": mm[0], "y": mm[1], "z": mm[2]}
                        }}
-
-    if not sod == None:
-        for ml in rsd:
-            for agm in rsd[ml]:
-                for xyz in rsd[ml][agm]:
-                    rsd[ml][agm][xyz] -= sod[ml][agm][xyz]
 
     return rsd
 

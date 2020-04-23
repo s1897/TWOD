@@ -39,3 +39,4 @@ from IMU.CSD.rsd import rsd
 def qar():
 
     sdd = rsd()
+    print(sdd)
