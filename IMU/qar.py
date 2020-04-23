@@ -36,4 +36,4 @@ from time import time
 
 while True:
 
-    print(rsd(), time())
+    h = rsd()
