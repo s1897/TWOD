@@ -19,6 +19,7 @@
 # | +x  | -x  | +y  | -y  | +z  | -z  |
 # |  f  |  g  |  h  |  j  |  k  |  l  |
 
+# csn = cube sector name
 # fhk = +x+y+z cube
 # fhl = +x+y-z cube
 # fjk = +x-y+z cube
@@ -46,11 +47,20 @@ def qar():
             for xyz in sdd[ml][agm]:
                 nsv += sdd[ml][agm][xyz] * sdd[ml][agm][xyz]
 
-            nsv **= 0.5
+        nsv **= 0.5
 
-            for xyz in sdd[ml][agm]:
-                sdd[ml][agm][xyz] /= nsv
+        for xyz in sdd[ml][agm]:
+            sdd[ml][agm][xyz] /= nsv
 
+    csn = list()
+
+    # sdd now normalizd
+    for ml in sdd:
+        if sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["x"] > 0:
+            csn.append("fhk")
+
+
+if __name__ == '__main__':
     print(
         "mpu9250: acc: x: {:+4f} y: {:+4f} z: {:+4f} gyr: x: {:+4f} y: {:+4f} z: {:+4f} mag: x: {:+4f} y: {:+4f} z {:+4f}  \n".format(
             sdd["mpu9250"]["acc"]["x"], sdd["mpu9250"]["acc"]["y"], sdd["mpu9250"]["acc"]["z"], sdd["mpu9250"]["gyr"]["x"], sdd["mpu9250"]["gyr"]["y"], sdd["mpu9250"]["gyr"]["z"], sdd["mpu9250"]["mag"]["x"], sdd["mpu9250"]["mag"]["y"], sdd["mpu9250"]["mag"]["z"]
@@ -58,7 +68,3 @@ def qar():
         "lsm9ds1: acc: x: {:+4f} y: {:+4f} z: {:+4f} gyr: x: {:+4f} y: {:+4f} z: {:+4f} mag: x: {:+4f} y: {:+4f} z {:+4f}  ".format(
             sdd["lsm9ds1"]["acc"]["x"], sdd["lsm9ds1"]["acc"]["y"], sdd["lsm9ds1"]["acc"]["z"], sdd["lsm9ds1"]["gyr"]["x"], sdd["lsm9ds1"]["gyr"]["y"], sdd["lsm9ds1"]["gyr"]["z"], sdd["lsm9ds1"]["mag"]["x"], sdd["lsm9ds1"]["mag"]["y"], sdd["lsm9ds1"]["mag"]["z"]
         ))
-
-
-if __name__ == '__main__':
-    pass
