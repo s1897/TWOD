@@ -59,6 +59,8 @@ def qar():
         if sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["x"] > 0:
             csn.append("fhk")
 
+    print(csn)
+
 
 if __name__ == '__main__':
     print(
