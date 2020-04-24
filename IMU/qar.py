@@ -47,10 +47,10 @@ def qar():
             for xyz in sdd[ml][agm]:
                 nsv += sdd[ml][agm][xyz] * sdd[ml][agm][xyz]
 
-        nsv **= 0.5
+            nsv **= 0.5
 
-        for xyz in sdd[ml][agm]:
-            sdd[ml][agm][xyz] /= nsv
+            for xyz in sdd[ml][agm]:
+                sdd[ml][agm][xyz] /= nsv
 
     csn = list()
 
