@@ -113,6 +113,9 @@ def rpd():
         elif sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["y"] < 0 and sdd[ml]["acc"]["z"] < 0:
             csn[ml] = "gjl"
 
+        else:
+            print("+++++++++++++++++++++++++++++++++++")
+
     # abs all te values of the sensor data directory
     for ml in sdd:
         for agm in sdd[ml]:
@@ -199,7 +202,8 @@ def rpd():
 
             # YZ → -1 × ( atan ( y ÷ z ) + π ÷ 2 ) = αyz
             res["YZ"] = -1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
-
+        else:
+            print("______________________________")
     try:
         print("XY: {:+4f} XZ: {:+4f} YZ: {:+4f}".format(degrees(res["XY"]), degrees(res["XZ"]), degrees(res["YZ"])))
 
