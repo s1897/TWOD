@@ -19,7 +19,6 @@
 from RIM.rie import rie
 
 
-# define read receiver imput
 def rir(sdi, pdi={'tpi_00': 0, 'tpi_01': 1, 'tpi_02': 2, 'tpi_03': 3, 'tpi_04': 4, 'tpi_05': 5, 'tpi_06': 6, 'tpi_07': 7}):
 
     # gets directorys key name

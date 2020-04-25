@@ -51,8 +51,8 @@
 #
 #     n = rir(ccd, irc)
 #     print(pcd(n, ppd, cpd))
-from IMU.qar import qar
+from IMU.rpd import rpd
 
 
 while True:
-    qar()
+    rpd()

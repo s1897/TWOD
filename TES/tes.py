@@ -152,9 +152,49 @@
 #             for agm in rsd[ml]:
 #                 for xyz in rsd[ml][agm]:
 #                     rsd[ml][agm][xyz] -= sod[ml][agm][xyz]
+#
+# t = 2
+#
+# t **= 0.5
+#
+# print(t)
+from math import atan, degrees
 
-t = 2
+x = 1
+y = 1
+z = 0
 
-t **= 0.5
 
-print(t)
+nx = 0
+ny = 0
+nz = 0
+
+n = (x * x + y * y + z * z)**0.5
+
+x /= n
+y /= n
+z /= n
+
+# if x > y:
+#     s1 = atan(y / x)
+# elif x < y:
+#     s1 = atan(x / y)
+# else:
+s1 = atan(y / x)
+#
+# if x > z:
+#     s2 = atan(z / x)
+# elif x < z:
+#     s2 = atan(x / z)
+# else:
+s2 = atan(z / x)
+#
+# if y > z:
+#     s3 = atan(z / y)
+# elif y < z:
+#     s3 = atan(y / z)
+# else:
+s3 = atan(z / y)
+
+print(degrees(s1), degrees(s2), degrees(s3))
+# print(nx + abs(x), ny + abs(y), nz + abs(z))
