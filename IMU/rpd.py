@@ -66,8 +66,7 @@ def rpd():
     res = {"XY": None, "XZ": None, "YZ": None}
 
     # calculate te normaliz value
-    for ml in s1 ×dd:
-        add π÷2
+    for ml in sdd:
         for agm in sdd[ml]:
             for xyz in sdd[ml][agm]:
 
