@@ -52,7 +52,7 @@
 
 # import of required directories
 from IMU.CSD.rsd import rsd
-from math import pi, atan
+from math import pi, atan, degrees
 
 
 # define rotation position directory
@@ -200,7 +200,7 @@ def rpd():
             # YZ → -1 × ( atan ( y ÷ z ) + π ÷ 2 ) = αyz
             res["YZ"] = -1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
-    print("XY: {:+4f} XZ: {:+4f} YZ: {:+4f}".format(res["XY"], res["XZ"], res["YZ"]))
+    print("XY: {:+4f} XZ: {:+4f} YZ: {:+4f}".format(degrees(res["XY"]), degrees(res["XZ"]), degrees(res["YZ"])))
     # print(
     #     "mpu9250: acc: x: {:+4f} y: {:+4f} z: {:+4f} gyr: x: {:+4f} y: {:+4f} z: {:+4f} mag: x: {:+4f} y: {:+4f} z {:+4f}  \n".format(
     #         sdd["mpu9250"]["acc"]["x"], sdd["mpu9250"]["acc"]["y"], sdd["mpu9250"]["acc"]["z"], sdd["mpu9250"]["gyr"]["x"], sdd["mpu9250"]["gyr"]["y"], sdd["mpu9250"]["gyr"]["z"], sdd["mpu9250"]["mag"]["x"], sdd["mpu9250"]["mag"]["y"], sdd["mpu9250"]["mag"]["z"]
