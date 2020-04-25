@@ -204,7 +204,7 @@ def rpd():
         print("XY: {:+4f} XZ: {:+4f} YZ: {:+4f}".format(degrees(res["XY"]), degrees(res["XZ"]), degrees(res["YZ"])))
 
     except:
-        print(res, csn)
+        print(res, csn, sdd)
         x = input("0")
 
     # print(
