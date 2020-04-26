@@ -364,7 +364,7 @@ def rpd():
             # YZ → -1 × ( atan ( y ÷ z ) + π ÷ 2 ) = αyz
             res[ml]["YZ"] = -1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
-        if csn[ml] == "fhk":
+        elif csn[ml] == "fhk":
             # XY → +1 × ( atan ( y ÷ x ) ------- ) = αxy
             res[ml]["XY"] = +1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
 
