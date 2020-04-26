@@ -185,7 +185,7 @@ def rpd():
 
     for ml in sdd:
         # fh = +x+y plane
-        if csn[ml] = "fh":
+        if csn[ml] == "fh":
             # XY → +1 × ( atan ( y ÷ x ) ------- ) = αxy
             res["XY"] = +1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
 
@@ -194,7 +194,7 @@ def rpd():
             res["YZ"] = 0
 
         # gh = -x+y plane
-        elif csn[ml] = "gh":
+        elif csn[ml] == "gh":
             # XY → +1 × ( atan ( x ÷ y ) + π ÷ 2 ) = αxy
             res["XY"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
 
@@ -203,7 +203,7 @@ def rpd():
             res["YZ"] = 0
 
         # fj = +x-y plane
-        elif csn[ml] = "fj":
+        elif csn[ml] == "fj":
             # XY → -1 × ( atan ( y ÷ x ) ------- ) = αxy
             res["XY"] = -1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
 
@@ -212,16 +212,16 @@ def rpd():
             res["YZ"] = pi
 
         # gj = -x-y plane
-        elif csn[ml] = "gj":
+        elif csn[ml] == "gj":
             # XY → -1 × ( atan ( x ÷ y ) + π ÷ 2 ) = αxy
             res["XY"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
 
             res["XZ"] = pi
 
-            res["YZ"] =
+            res["YZ"] = 0
 
         # fk = +x+z plane
-        elif csn[ml] = "fk":
+        elif csn[ml] == "fk":
             res["XY"] = 0
 
             # XZ → +1 × ( atan ( z ÷ x ) ------- ) = αxz
@@ -230,7 +230,7 @@ def rpd():
             res["YZ"] = 0
 
         # gk = -x+z plane
-        elif csn[ml] = "gk":
+        elif csn[ml] == "gk":
             res["XY"] = pi
 
             # XZ → +1 × ( atan ( x ÷ z ) + π ÷ 2 ) = αxz
@@ -239,7 +239,7 @@ def rpd():
             res["YZ"] = 0
 
         # fl = +x-z plane
-        elif csn[ml] = "fl":
+        elif csn[ml] == "fl":
             res["XY"] = 0
 
             # XZ → -1 × ( atan ( z ÷ x ) ------- ) = αxz
@@ -248,7 +248,7 @@ def rpd():
             res["YZ"] = 0
 
         # gl = -x-z plane
-        elif csn[ml] = "gl":
+        elif csn[ml] == "gl":
             res["XY"] = pi
 
             # XZ → -1 × ( atan ( x ÷ z ) + π ÷ 2 ) = αxz
@@ -257,7 +257,7 @@ def rpd():
             res["YZ"] = 0
 
         # hk = +y+z plane
-        elif csn[ml] = "hk":
+        elif csn[ml] == "hk":
             res["XY"] = 0
 
             res["XZ"] = 0
@@ -266,7 +266,7 @@ def rpd():
             res["YZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
 
         # jk = -y+z plane
-        elif csn[ml] = "jk":
+        elif csn[ml] == "jk":
             res["XY"] = 0
 
             res["XZ"] = 0
@@ -275,7 +275,7 @@ def rpd():
             res["YZ"] = +1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
         # hl = +y-z plane
-        elif csn[ml] = "hl":
+        elif csn[ml] == "hl":
             res["XY"] = 0
 
             res["XZ"] = 0
@@ -284,7 +284,7 @@ def rpd():
             res["YZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
 
         # jl = -y-z plane
-        elif csn[ml] = "jl":
+        elif csn[ml] == "jl":
             res["XY"] = 0
 
             res["XZ"] = 0
