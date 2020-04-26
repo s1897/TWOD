@@ -446,6 +446,7 @@ def rpd():
 
         else:
             print("------", csn[ml])
+            raise Exception(csn[ml])
 
     try:
         print("mpu9250: XY: {:+4f} XZ: {:+4f} YZ: {:+4f} lsm9ds1: XY: {:+4f} XZ: {:+4f} YZ: {:+4f}".format(
