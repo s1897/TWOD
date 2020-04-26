@@ -79,7 +79,7 @@ def rpd():
     sdd = rsd()
 
     csn = {"mpu9250": None, "lsm9ds1": None}
-    res = {"XY": None, "XZ": None, "YZ": None}
+    res = {"mpu9250": {"XY": None, "XZ": None, "YZ": None}, "lsm9ds1": {"XY": None, "XZ": None, "YZ": None}}
 
     # calculate te normaliz value
     for ml in sdd:
@@ -187,192 +187,193 @@ def rpd():
         # fh = +x+y plane
         if csn[ml] == "fh":
             # XY → +1 × ( atan ( y ÷ x ) ------- ) = αxy
-            res["XY"] = +1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
+            res[ml]["XY"] = +1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
 
-            res["XZ"] = 0
+            res[ml]["XZ"] = 0
 
-            res["YZ"] = 0
+            res[ml]["YZ"] = 0
 
         # gh = -x+y plane
         elif csn[ml] == "gh":
             # XY → +1 × ( atan ( x ÷ y ) + π ÷ 2 ) = αxy
-            res["XY"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
+            res[ml]["XY"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
 
-            res["XZ"] = pi
+            res[ml]["XZ"] = pi
 
-            res["YZ"] = 0
+            res[ml]["YZ"] = 0
 
         # fj = +x-y plane
         elif csn[ml] == "fj":
             # XY → -1 × ( atan ( y ÷ x ) ------- ) = αxy
-            res["XY"] = -1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
+            res[ml]["XY"] = -1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
 
-            res["XZ"] = 0
+            res[ml]["XZ"] = 0
 
-            res["YZ"] = pi
+            res[ml]["YZ"] = pi
 
         # gj = -x-y plane
         elif csn[ml] == "gj":
             # XY → -1 × ( atan ( x ÷ y ) + π ÷ 2 ) = αxy
-            res["XY"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
+            res[ml]["XY"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
 
-            res["XZ"] = pi
+            res[ml]["XZ"] = pi
 
-            res["YZ"] = pi
+            res[ml]["YZ"] = pi
 
         # fk = +x+z plane
         elif csn[ml] == "fk":
-            res["XY"] = 0
+            res[ml]["XY"] = 0
 
             # XZ → +1 × ( atan ( z ÷ x ) ------- ) = αxz
-            res["XZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
+            res[ml]["XZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
 
-            res["YZ"] = pi / 2
+            res[ml]["YZ"] = pi / 2
 
         # gk = -x+z plane
         elif csn[ml] == "gk":
-            res["XY"] = pi
+            res[ml]["XY"] = pi
 
             # XZ → +1 × ( atan ( x ÷ z ) + π ÷ 2 ) = αxz
-            res["XZ"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["z"]) + pi / 2)
+            res[ml]["XZ"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
-            res["YZ"] = pi / 2
+            res[ml]["YZ"] = pi / 2
 
         # fl = +x-z plane
         elif csn[ml] == "fl":
-            res["XY"] = 0
+            res[ml]["XY"] = 0
 
             # XZ → -1 × ( atan ( z ÷ x ) ------- ) = αxz
-            res["XZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
+            res[ml]["XZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
 
-            res["YZ"] = -pi / 2
+            res[ml]["YZ"] = -pi / 2
 
         # gl = -x-z plane
         elif csn[ml] == "gl":
-            res["XY"] = pi
+            res[ml]["XY"] = pi
 
             # XZ → -1 × ( atan ( x ÷ z ) + π ÷ 2 ) = αxz
-            res["XZ"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["z"]) + pi / 2)
+            res[ml]["XZ"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
-            res["YZ"] = -pi / 2
+            res[ml]["YZ"] = -pi / 2
 
         # hk = +y+z plane
         elif csn[ml] == "hk":
-            res["XY"] = pi / 2
+            res[ml]["XY"] = pi / 2
 
-            res["XZ"] = pi / 2
+            res[ml]["XZ"] = pi / 2
 
             # YZ → +1 × ( atan ( z ÷ y ) ------- ) = αyz
-            res["YZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
+            res[ml]["YZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
 
         # jk = -y+z plane
         elif csn[ml] == "jk":
-            res["XY"] = -pi / 2
+            res[ml]["XY"] = -pi / 2
 
-            res["XZ"] = pi / 2
+            res[ml]["XZ"] = pi / 2
 
             # YZ → +1 × ( atan ( y ÷ z ) + π ÷ 2 ) = αyz
-            res["YZ"] = +1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
+            res[ml]["YZ"] = +1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
         # hl = +y-z plane
         elif csn[ml] == "hl":
-            res["XY"] = pi / 2
+            res[ml]["XY"] = pi / 2
 
-            res["XZ"] = -pi / 2
+            res[ml]["XZ"] = -pi / 2
 
             # YZ → -1 × ( atan ( z ÷ y ) ------- ) = αyz
-            res["YZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
+            res[ml]["YZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
 
         # jl = -y-z plane
         elif csn[ml] == "jl":
-            res["XY"] = -pi / 2
+            res[ml]["XY"] = -pi / 2
 
-            res["XZ"] = -pi / 2
+            res[ml]["XZ"] = -pi / 2
 
             # YZ → -1 × ( atan ( y ÷ z ) + π ÷ 2 ) = αyz
-            res["YZ"] = -1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
+            res[ml]["YZ"] = -1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
         if csn[ml] == "fhk":
             # XY → +1 × ( atan ( y ÷ x ) ------- ) = αxy
-            res["XY"] = +1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
+            res[ml]["XY"] = +1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
 
             # XZ → +1 × ( atan ( z ÷ x ) ------- ) = αxz
-            res["XZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
+            res[ml]["XZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
 
             # YZ → +1 × ( atan ( z ÷ y ) ------- ) = αyz
-            res["YZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
+            res[ml]["YZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
 
         elif csn[ml] == "fhl":
             # XY → +1 × ( atan ( y ÷ x ) ------- ) = αxy
-            res["XY"] = +1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
+            res[ml]["XY"] = +1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
 
             # XZ → -1 × ( atan ( z ÷ x ) ------- ) = αxz
-            res["XZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
+            res[ml]["XZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
 
             # YZ → -1 × ( atan ( z ÷ y ) ------- ) = αyz
-            res["YZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
+            res[ml]["YZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
 
         elif csn[ml] == "fjk":
             # XY → -1 × ( atan ( y ÷ x ) ------- ) = αxy
-            res["XY"] = -1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
+            res[ml]["XY"] = -1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
 
             # XZ → +1 × ( atan ( z ÷ x ) ------- ) = αxz
-            res["XZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
+            res[ml]["XZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
 
             # YZ → +1 × ( atan ( y ÷ z ) + π ÷ 2 ) = αyz
-            res["YZ"] = +1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
+            res[ml]["YZ"] = +1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
         elif csn[ml] == "fjl":
             # XY → -1 × ( atan ( y ÷ x ) ------- ) = αxy
-            res["XY"] = -1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
+            res[ml]["XY"] = -1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
 
             # XZ → -1 × ( atan ( z ÷ x ) ------- ) = αxz
-            res["XZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
+            res[ml]["XZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
 
             # YZ → -1 × ( atan ( y ÷ z ) + π ÷ 2 ) = αyz
-            res["YZ"] = -1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
+            res[ml]["YZ"] = -1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
         elif csn[ml] == "ghk":
             # XY → +1 × ( atan ( x ÷ y ) + π ÷ 2 ) = αxy
-            res["XY"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
+            res[ml]["XY"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
 
             # XZ → +1 × ( atan ( x ÷ z ) + π ÷ 2 ) = αxz
-            res["XZ"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["z"]) + pi / 2)
+            res[ml]["XZ"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
             # YZ → +1 × ( atan ( z - y ) ------- ) = αyz
-            res["YZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
+            res[ml]["YZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
 
         elif csn[ml] == "ghl":
             # XY → +1 × ( atan ( x ÷ y ) + π ÷ 2 ) = αxy
-            res["XY"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
+            res[ml]["XY"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
 
             # XZ → -1 × ( atan ( x ÷ z ) + π ÷ 2 ) = αxz
-            res["XZ"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["z"]) + pi / 2)
+            res[ml]["XZ"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
             # YZ → -1 × ( atan ( z - y ) ------- ) = αyz
-            res["YZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
+            res[ml]["YZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
 
         elif csn[ml] == "gjk":
             # XY → -1 × ( atan ( x ÷ y ) + π ÷ 2 ) = αxy
-            res["XY"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
+            res[ml]["XY"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
 
             # XZ → +1 × ( atan ( x ÷ z ) + π ÷ 2 ) = αxz
-            res["XZ"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["z"]) + pi / 2)
+            res[ml]["XZ"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
             # YZ → +1 × ( atan ( y ÷ z ) + π ÷ 2 ) = αyz
-            res["YZ"] = +1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
+            res[ml]["YZ"] = +1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
         elif csn[ml] == "gjl":
             # XY → -1 × ( atan ( x ÷ y ) + π ÷ 2 ) = αxy
-            res["XY"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
+            res[ml]["XY"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
 
             # XZ → -1 × ( atan ( x ÷ z ) + π ÷ 2 ) = αxz
-            res["XZ"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["z"]) + pi / 2)
+            res[ml]["XZ"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
             # YZ → -1 × ( atan ( y ÷ z ) + π ÷ 2 ) = αyz
-            res["YZ"] = -1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
+            res[ml]["YZ"] = -1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
-    print("XY: {:+4f} XZ: {:+4f} YZ: {:+4f}".format(degrees(res["XY"]), degrees(res["XZ"]), degrees(res["YZ"])))
+    for ml in res:
+        print("XY: {:+4f} XZ: {:+4f} YZ: {:+4f}".format(degrees(res[ml]["XY"]), degrees(res[ml]["XZ"]), degrees(res[ml]["YZ"])))
 
     # print(
     #     "mpu9250: acc: x: {:+4f} y: {:+4f} z: {:+4f} gyr: x: {:+4f} y: {:+4f} z: {:+4f} mag: x: {:+4f} y: {:+4f} z {:+4f}  \n".format(
