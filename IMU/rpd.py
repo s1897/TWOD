@@ -21,6 +21,21 @@
 
 # csn = cube sector name
 #
+# fh = +x+y plane
+# gh = -x+y plane
+# fj = +x-y plane
+# gj = -x-y plane
+#
+# fk = +x+z plane
+# gk = -x+z plane
+# fl = +x-z plane
+# gl = -x-z plane
+#
+# hk = +y+z plane
+# jk = -y+z plane
+# hl = +y-z plane
+# jl = -y-z plane
+#
 # fhk = +x+y+z cube
 # fhl = +x+y-z cube
 # fjk = +x-y+z cube
@@ -29,6 +44,7 @@
 # ghl = -x+y-z cube
 # gjk = -x-y+z cube
 # gjl = -x-y-z cube
+
 
 # XY : +x+y  →  ±π×0  →  +π÷2  |  fhk  |  fhl  |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |
 #      +y-x  →  +π÷2  →  ±π×1  |  ---  |  ---  |  ---  |  ---  |  ghk  |  ghl  |  ---  |  ---  |
@@ -78,11 +94,59 @@ def rpd():
             for xyz in sdd[ml][agm]:
                 sdd[ml][agm][xyz] /= nsv
 
-    # difine the psoition cube
-    for ml in sdd:
+    # difine the psoition cube and plane
+    for ml in ssd:
+
+        # fh = +x+y plane
+        if sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["y"] > 0 and sdd[ml]["acc"]["z"] == 0:
+            csn[ml] = "fh"
+
+        # gh = -x+y plane
+        elif sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["y"] > 0 and sdd[ml]["acc"]["z"] == 0:
+            csn[ml] = "gh"
+
+        # fj = +x-y plane
+        elif sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["y"] < 0 and sdd[ml]["acc"]["z"] == 0:
+            csn[ml] = "fj"
+
+        # gj = -x-y plane
+        elif sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["y"] < 0 and sdd[ml]["acc"]["z"] == 0:
+            csn[ml] = "gj"
+
+        # fk = +x+z plane
+        elif sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["y"] == 0 and sdd[ml]["acc"]["z"] > 0:
+            csn[ml] = "fk"
+
+        # gk = -x+z plane
+        elif sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["y"] == 0 and sdd[ml]["acc"]["z"] > 0:
+            csn[ml] = "gk"
+
+        # fl = +x-z plane
+        elif sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["y"] == 0 and sdd[ml]["acc"]["z"] < 0:
+            csn[ml] = "fl"
+
+        # gl = -x-z plane
+        elif sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["y"] == 0 and sdd[ml]["acc"]["z"] < 0:
+            csn[ml] = "gl"
+
+        # hk = +y+z plane
+        elif sdd[ml]["acc"]["x"] == 0 and sdd[ml]["acc"]["y"] > 0 and sdd[ml]["acc"]["z"] > 0:
+            csn[ml] = "hk"
+
+        # jk = -y+z plane
+        elif sdd[ml]["acc"]["x"] == 0 and sdd[ml]["acc"]["y"] < 0 and sdd[ml]["acc"]["z"] > 0:
+            csn[ml] = "jk"
+
+        # hl = +y-z plane
+        elif sdd[ml]["acc"]["x"] == 0 and sdd[ml]["acc"]["y"] > 0 and sdd[ml]["acc"]["z"] < 0:
+            csn[ml] = "hl"
+
+        # jl = -y-z plane
+        elif sdd[ml]["acc"]["x"] == 0 and sdd[ml]["acc"]["y"] < 0 and sdd[ml]["acc"]["z"] < 0:
+            csn[ml] = "jl"
 
         # fhk = +x+y+z cube
-        if sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["y"] > 0 and sdd[ml]["acc"]["z"] > 0:
+        elif sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["y"] > 0 and sdd[ml]["acc"]["z"] > 0:
             csn[ml] = "fhk"
 
         # fhl = +x+y-z cube
@@ -120,6 +184,114 @@ def rpd():
                 sdd[ml][agm][xyz] = abs(sdd[ml][agm][xyz])
 
     for ml in sdd:
+        # fh = +x+y plane
+        if csn[ml] = "fh":
+            # XY → +1 × ( atan ( y ÷ x ) ------- ) = αxy
+            res["XY"] = +1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
+
+            res["XZ"] = 0
+
+            res["YZ"] = 0
+
+        # gh = -x+y plane
+        elif csn[ml] = "gh":
+            # XY → +1 × ( atan ( x ÷ y ) + π ÷ 2 ) = αxy
+            res["XY"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
+
+            res["XZ"] = 0
+
+            res["YZ"] = 0
+
+        # fj = +x-y plane
+        elif csn[ml] = "fj":
+            # XY → -1 × ( atan ( y ÷ x ) ------- ) = αxy
+            res["XY"] = -1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
+
+            res["XZ"] = 0
+
+            res["YZ"] = 0
+
+        # gj = -x-y plane
+        elif csn[ml] = "gj":
+            # XY → -1 × ( atan ( x ÷ y ) + π ÷ 2 ) = αxy
+            res["XY"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["y"]) + pi / 2)
+
+            res["XZ"] = 0
+
+            res["YZ"] = 0
+
+        # fk = +x+z plane
+        elif csn[ml] = "fk":
+            res["XY"] = 0
+
+            # XZ → +1 × ( atan ( z ÷ x ) ------- ) = αxz
+            res["XZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
+
+            res["YZ"] = 0
+
+        # gk = -x+z plane
+        elif csn[ml] = "gk":
+            res["XY"] = 0
+
+            # XZ → +1 × ( atan ( x ÷ z ) + π ÷ 2 ) = αxz
+            res["XZ"] = +1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["z"]) + pi / 2)
+
+            res["YZ"] = 0
+
+        # fl = +x-z plane
+        elif csn[ml] = "fl":
+            res["XY"] = 0
+
+            # XZ → -1 × ( atan ( z ÷ x ) ------- ) = αxz
+            res["XZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
+
+            res["YZ"] = 0
+
+        # gl = -x-z plane
+        elif csn[ml] = "gl":
+            res["XY"] = 0
+
+            # XZ → -1 × ( atan ( x ÷ z ) + π ÷ 2 ) = αxz
+            res["XZ"] = -1 * (atan(sdd[ml]["acc"]["x"] / sdd[ml]["acc"]["z"]) + pi / 2)
+
+            res["YZ"] = 0
+
+        # hk = +y+z plane
+        elif csn[ml] = "hk":
+            res["XY"] = 0
+
+            res["XZ"] = 0
+
+            # YZ → +1 × ( atan ( z ÷ y ) ------- ) = αyz
+            res["YZ"] = +1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
+
+        # jk = -y+z plane
+        elif csn[ml] = "jk":
+            res["XY"] = 0
+
+            res["XZ"] = 0
+
+            # YZ → +1 × ( atan ( y ÷ z ) + π ÷ 2 ) = αyz
+            res["YZ"] = +1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
+
+        # hl = +y-z plane
+        elif csn[ml] = "hl":
+            res["XY"] = 0
+
+            res["XZ"] = 0
+
+            # YZ → -1 × ( atan ( z ÷ y ) ------- ) = αyz
+            res["YZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["y"])
+
+        # jl = -y-z plane
+        elif csn[ml] = "jl":
+            res["XY"] = 0
+
+            res["XZ"] = 0
+
+            # YZ → -1 × ( atan ( y ÷ z ) + π ÷ 2 ) = αyz
+            res["YZ"] = -1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
+
         if csn[ml] == "fhk":
             # XY → +1 × ( atan ( y ÷ x ) ------- ) = αxy
             res["XY"] = +1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
