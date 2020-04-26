@@ -92,7 +92,7 @@ def rpd():
 
             # divide the sensor data directory whit the normalizd value
             for xyz in sdd[ml][agm]:
-                sdd[ml][agm][xyz] /= nsv
+                sdd[ml][agm][xyz] = round(sdd[ml][agm][xyz] / nsv, 2)
 
     # difine the psoition cube and plane
     for ml in sdd:
