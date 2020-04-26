@@ -285,9 +285,9 @@ def rpd():
 
         # jl = -y-z plane
         elif csn[ml] == "jl":
-            res["XY"] = 0
+            res["XY"] = pi / 2
 
-            res["XZ"] = 0
+            res["XZ"] = -pi / 2
 
             # YZ → -1 × ( atan ( y ÷ z ) + π ÷ 2 ) = αyz
             res["YZ"] = -1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
