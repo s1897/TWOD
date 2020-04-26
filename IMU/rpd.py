@@ -240,12 +240,12 @@ def rpd():
 
         # fl = +x-z plane
         elif csn[ml] == "fl":
-            res["XY"] = 0
+            res["XY"] = pi / 2
 
             # XZ → -1 × ( atan ( z ÷ x ) ------- ) = αxz
             res["XZ"] = -1 * atan(sdd[ml]["acc"]["z"] / sdd[ml]["acc"]["x"])
 
-            res["YZ"] = 0
+            res["YZ"] = -pi / 2
 
         # gl = -x-z plane
         elif csn[ml] == "gl":
