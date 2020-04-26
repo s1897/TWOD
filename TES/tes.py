@@ -156,45 +156,61 @@
 # t = 2
 #
 # t **= 0.5
+# #
+# # print(t)
+# from math import atan, degrees
 #
-# print(t)
-from math import atan, degrees
-
-x = 1
-y = 1
-z = 0
-
-
-nx = 0
-ny = 0
-nz = 0
-
-n = (x * x + y * y + z * z)**0.5
-
-x /= n
-y /= n
-z /= n
-
-# if x > y:
-#     s1 = atan(y / x)
-# elif x < y:
-#     s1 = atan(x / y)
-# else:
-s1 = atan(y / x)
+# x = 1
+# y = 1
+# z = 0
 #
-# if x > z:
-#     s2 = atan(z / x)
-# elif x < z:
-#     s2 = atan(x / z)
-# else:
-s2 = atan(z / x)
 #
-# if y > z:
-#     s3 = atan(z / y)
-# elif y < z:
-#     s3 = atan(y / z)
-# else:
-s3 = atan(z / y)
+# nx = 0
+# ny = 0
+# nz = 0
+#
+# n = (x * x + y * y + z * z)**0.5
+#
+# x /= n
+# y /= n
+# z /= n
+#
+# # if x > y:
+# #     s1 = atan(y / x)
+# # elif x < y:
+# #     s1 = atan(x / y)
+# # else:
+# s1 = atan(y / x)
+# #
+# # if x > z:
+# #     s2 = atan(z / x)
+# # elif x < z:
+# #     s2 = atan(x / z)
+# # else:
+# s2 = atan(z / x)
+# #
+# # if y > z:
+# #     s3 = atan(z / y)
+# # elif y < z:
+# #     s3 = atan(y / z)
+# # else:
+# s3 = atan(z / y)
+#
+# print(degrees(s1), degrees(s2), degrees(s3))
+# # print(nx + abs(x), ny + abs(y), nz + abs(z))
+sdd = {'lsm9ds1': {'acc': {'x': 0.0, 'y': 0.0, 'z': -10.338162768554687}}}
 
-print(degrees(s1), degrees(s2), degrees(s3))
-# print(nx + abs(x), ny + abs(y), nz + abs(z))
+nsv = 0
+for ml in sdd:
+    for agm in sdd[ml]:
+        for xyz in sdd[ml][agm]:
+
+            nsv += (sdd[ml][agm][xyz]) * (sdd[ml][agm][xyz])
+
+        nsv **= 0.5
+
+        # divide the sensor data directory whit the normalizd value
+        for xyz in sdd[ml][agm]:
+            sdd[ml][agm][xyz] /= nsv
+
+print(sdd)
