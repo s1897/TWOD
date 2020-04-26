@@ -95,7 +95,7 @@ def rpd():
                 sdd[ml][agm][xyz] /= nsv
 
     # difine the psoition cube and plane
-    for ml in ssd:
+    for ml in sdd:
 
         # fh = +x+y plane
         if sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["y"] > 0 and sdd[ml]["acc"]["z"] == 0:
