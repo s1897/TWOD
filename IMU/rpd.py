@@ -372,6 +372,9 @@ def rpd():
             # YZ → -1 × ( atan ( y ÷ z ) + π ÷ 2 ) = αyz
             res[ml]["YZ"] = -1 * (atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["z"]) + pi / 2)
 
+        else:
+            print("------")
+
     try:
         print("mpu9250: XY: {:+4f} XZ: {:+4f} YZ: {:+4f} lsm9ds1: XY: {:+4f} XZ: {:+4f} YZ: {:+4f}".format(
             degrees(res["mpu9250"]["XY"]), degrees(res["mpu9250"]["XZ"]), degrees(res["mpu9250"]["YZ"]),
