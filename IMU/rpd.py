@@ -21,6 +21,13 @@
 
 # csn = cube sector name
 #
+# f = +x axis
+# g = -x axis
+# h = +y axis
+# j = -y axis
+# k = +z axis
+# l = -z axis
+#
 # fh = +x+y plane
 # gh = -x+y plane
 # fj = +x-y plane
@@ -99,8 +106,32 @@ def rpd():
     # difine the psoition cube and plane
     for ml in sdd:
 
+        # f = +x axis
+        if sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["y"] == 0 and sdd[ml]["acc"]["z"] == 0:
+            csn[ml] = "f"
+
+        # g = -x axis
+        elif sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["y"] == 0 and sdd[ml]["acc"]["z"] == 0:
+            csn[ml] = "g"
+
+        # h = +y axis
+        elif sdd[ml]["acc"]["x"] == 0 and sdd[ml]["acc"]["y"] > 0 and sdd[ml]["acc"]["z"] == 0:
+            csn[ml] = "h"
+
+        # j = -y axis
+        elif sdd[ml]["acc"]["x"] == 0 and sdd[ml]["acc"]["y"] < 0 and sdd[ml]["acc"]["z"] == 0:
+            csn[ml] = "j"
+
+        # k = +z axis
+        elif sdd[ml]["acc"]["x"] == 0 and sdd[ml]["acc"]["y"] == 0 and sdd[ml]["acc"]["z"] > 0:
+            csn[ml] = "k"
+
+        # l = -z axis
+        elif sdd[ml]["acc"]["x"] == 0 and sdd[ml]["acc"]["y"] == 0 and sdd[ml]["acc"]["z"] < 0:
+            csn[ml] = "l"
+
         # fh = +x+y plane
-        if sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["y"] > 0 and sdd[ml]["acc"]["z"] == 0:
+        elif sdd[ml]["acc"]["x"] > 0 and sdd[ml]["acc"]["y"] > 0 and sdd[ml]["acc"]["z"] == 0:
             csn[ml] = "fh"
 
         # gh = -x+y plane
@@ -189,8 +220,44 @@ def rpd():
                 sdd[ml][agm][xyz] = abs(sdd[ml][agm][xyz])
 
     for ml in sdd:
+        # f = +x axis
+        if csn[ml] = "f":
+            res[ml]["XY"] = 0
+            res[ml]["XZ"] = 0
+            res[ml]["YZ"] = 0
+
+        # g = -x axis
+        elif csn[ml] = "g":
+            res[ml]["XY"] = pi
+            res[ml]["XZ"] = pi
+            res[ml]["YZ"] = 0
+
+        # h = +y axis
+        elif csn[ml] = "h":
+            res[ml]["XY"] = pi / 2
+            res[ml]["XZ"] = 0
+            res[ml]["YZ"] = pi
+
+        # j = -y axis
+        elif csn[ml] = "j":
+            res[ml]["XY"] = -pi / 2
+            res[ml]["XZ"] = 0
+            res[ml]["YZ"] = pi
+
+        # k = +z axis
+        elif csn[ml] = "k":
+            res[ml]["XY"] = 0
+            res[ml]["XZ"] = pi / 2
+            res[ml]["YZ"] = pi / 2
+
+        # l = -z axis
+        elif csn[ml] = "l":
+            res[ml]["XY"] = 0
+            res[ml]["XZ"] = -pi / 2
+            res[ml]["YZ"] = -pi / 2
+
         # fh = +x+y plane
-        if csn[ml] == "fh":
+        elif csn[ml] == "fh":
             # XY → +1 × ( atan ( y ÷ x ) ------- ) = αxy
             res[ml]["XY"] = +1 * atan(sdd[ml]["acc"]["y"] / sdd[ml]["acc"]["x"])
 
