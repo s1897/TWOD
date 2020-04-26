@@ -221,37 +221,37 @@ def rpd():
 
     for ml in sdd:
         # f = +x axis
-        if csn[ml] = "f":
+        if csn[ml] == "f":
             res[ml]["XY"] = 0
             res[ml]["XZ"] = 0
             res[ml]["YZ"] = 0
 
         # g = -x axis
-        elif csn[ml] = "g":
+        elif csn[ml] == "g":
             res[ml]["XY"] = pi
             res[ml]["XZ"] = pi
             res[ml]["YZ"] = 0
 
         # h = +y axis
-        elif csn[ml] = "h":
+        elif csn[ml] == "h":
             res[ml]["XY"] = pi / 2
             res[ml]["XZ"] = 0
             res[ml]["YZ"] = pi
 
         # j = -y axis
-        elif csn[ml] = "j":
+        elif csn[ml] == "j":
             res[ml]["XY"] = -pi / 2
             res[ml]["XZ"] = 0
             res[ml]["YZ"] = pi
 
         # k = +z axis
-        elif csn[ml] = "k":
+        elif csn[ml] == "k":
             res[ml]["XY"] = 0
             res[ml]["XZ"] = pi / 2
             res[ml]["YZ"] = pi / 2
 
         # l = -z axis
-        elif csn[ml] = "l":
+        elif csn[ml] == "l":
             res[ml]["XY"] = 0
             res[ml]["XZ"] = -pi / 2
             res[ml]["YZ"] = -pi / 2
