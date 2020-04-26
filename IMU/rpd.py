@@ -88,7 +88,7 @@ def rpd():
     csn = {"mpu9250": None, "lsm9ds1": None}
     res = {"mpu9250": {"XY": None, "XZ": None, "YZ": None}, "lsm9ds1": {"XY": None, "XZ": None, "YZ": None}}
 
-    print(sdd)
+    # print(sdd)
     # calculate te normaliz value
     for ml in sdd:
         nsv = 0
