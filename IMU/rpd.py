@@ -177,6 +177,9 @@ def rpd():
         elif sdd[ml]["acc"]["x"] < 0 and sdd[ml]["acc"]["y"] < 0 and sdd[ml]["acc"]["z"] < 0:
             csn[ml] = "gjl"
 
+        else:
+            print("+++++")
+
     # abs all te values of the sensor data directory
     for ml in sdd:
         for agm in sdd[ml]:
